@@ -48,7 +48,7 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">🔷 Motivation:</a>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation:</a>
 </li>
 </ul>
 </li>
@@ -174,67 +174,168 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h2 id="problem-1-investigating-the-range-as-a-function-of-the-angle-of-projection">Problem 1: Investigating the Range as a Function of the Angle of Projection</h2>
-<h3 id="motivation">🔷 Motivation:</h3>
+<h3 id="motivation">Motivation:</h3>
 <p>Projectile motion is a fundamental topic in physics that showcases how forces and motion interact in two dimensions. Understanding how the <strong>range of a projectile</strong> depends on the <strong>angle of projection</strong> is crucial in various real-world applications, such as <strong>sports, engineering, and ballistics</strong>.</p>
 <p>This problem investigates the relationship between the <strong>horizontal range (R)</strong> and the <strong>angle of projection (θ)</strong> while considering how different parameters, such as <strong>initial velocity (v₀)</strong> and <strong>gravitational acceleration (g)</strong>, influence the results.</p>
 <hr/>
 <h2 id="task">Task:</h2>
-<h3 id="theoretical-foundation">Theoretical Foundation:</h3>
-<p>To analyze projectile motion, we break it into <strong>horizontal</strong> and <strong>vertical</strong> components.</p>
-<h4 id="equations-of-motion"><strong>Equations of Motion:</strong></h4>
+<h2 id="theoretical-foundation">Theoretical Foundation</h2>
+<h3 id="equations-of-motion-a-fundamental-approach"><strong>Equations of Motion: A Fundamental Approach</strong></h3>
+<p>Projectile motion is analyzed by breaking it into <strong>horizontal (x-axis) and vertical (y-axis) components</strong>, using <strong>Newton's Second Law</strong>:</p>
+<div class="arithmatex">\[
+F = ma
+\]</div>
+<p>where $ F $ is the force, $ m $ is the mass of the projectile, and $ a $ is its acceleration.</p>
+<hr/>
+<h3 id="11-horizontal-motion-constant-velocity"><strong>1.1 Horizontal Motion: Constant Velocity</strong></h3>
+<p>Since no force (neglecting air resistance) acts in the horizontal direction:</p>
+<div class="arithmatex">\[
+F_x = 0 \quad \Rightarrow \quad a_x = 0
+\]</div>
+<p>Thus, the horizontal velocity remains <strong>constant</strong>:</p>
+<div class="arithmatex">\[
+v_x = v_0 \cos(\theta)
+\]</div>
+<p>The <strong>horizontal position</strong> as a function of time is:</p>
+<div class="arithmatex">\[
+x(t) = v_0 \cos(\theta) t
+\]</div>
+<hr/>
+<h3 id="12-vertical-motion-accelerated-motion-due-to-gravity"><strong>1.2 Vertical Motion: Accelerated Motion Due to Gravity</strong></h3>
+<p>In the <strong>vertical direction</strong>, gravity acts downward:</p>
+<div class="arithmatex">\[
+F_y = -mg
+\]</div>
+<p>Applying Newton's Second Law:</p>
+<div class="arithmatex">\[
+m a_y = -mg \quad \Rightarrow \quad a_y = -g
+\]</div>
+<p>The vertical velocity and displacement equations are obtained by integrating acceleration:</p>
 <ol>
-<li>
-<p><strong>Horizontal Motion (Constant Velocity):</strong>
-   $$
-   x = v_0 \cos(\theta) t
-   $$
-   Since there is no acceleration in the horizontal direction (ignoring air resistance), velocity remains constant.</p>
-</li>
-<li>
-<p><strong>Vertical Motion (Accelerated Motion):</strong>
-   $$
-   y = v_0 \sin(\theta) t - \frac{1}{2} g t^2
-   $$
-   The vertical component is influenced by gravity, leading to parabolic motion.</p>
-</li>
+<li><strong>Velocity in the y-direction:</strong></li>
+</ol>
+<p>$$
+   v_y = v_0 \sin(\theta) - g t
+   $$</p>
+<ol>
+<li><strong>Vertical position as a function of time:</strong></li>
+</ol>
+<p>$$
+   y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2
+   $$</p>
+<hr/>
+<h3 id="13-time-of-flight"><strong>1.3 Time of Flight</strong></h3>
+<p>The projectile hits the ground when $ y = 0 $, solving for $ t $:</p>
+<div class="arithmatex">\[
+0 = v_0 \sin(\theta) t - \frac{1}{2} g t^2
+\]</div>
+<p>Factoring $ t $:</p>
+<div class="arithmatex">\[
+t (v_0 \sin(\theta) - \frac{1}{2} g t) = 0
+\]</div>
+<p>This gives two solutions:</p>
+<ol>
+<li>$ t = 0 $ (initial launch)</li>
+<li>$ t = \frac{2 v_0 \sin(\theta)}{g} $ (<strong>Total time of flight</strong>)</li>
 </ol>
 <hr/>
-<h4 id="key-derived-equations"><strong>Key Derived Equations</strong></h4>
-<p><strong>Time of Flight (T)</strong><br/>
-The projectile reaches the ground when <span class="arithmatex">\( y = 0 \)</span>:
-   $$
-   T = \frac{2 v_0 \sin(\theta)}{g}
-   $$</p>
-<p><strong>Horizontal Range (R)</strong><br/>
-Since <span class="arithmatex">\( x = v_0 \cos(\theta) t \)</span>, substituting <span class="arithmatex">\( T \)</span>:
-   $$
-   R = \frac{v_0^2 \sin(2\theta)}{g}
-   $$</p>
+<h3 id="14-horizontal-range-r"><strong>1.4 Horizontal Range (R)</strong></h3>
+<p>The range is found by substituting $ T $ into $ x(t) $:</p>
+<div class="arithmatex">\[
+R = v_0 \cos(\theta) \times \frac{2 v_0 \sin(\theta)}{g}
+\]</div>
+<p>Using the <strong>trigonometric identity</strong> $ 2 \sin(\theta) \cos(\theta) = \sin(2\theta) $ :</p>
+<div class="arithmatex">\[
+R = \frac{v_0^2 \sin(2\theta)}{g}
+\]</div>
+<p><strong>Key Insights:</strong>
+- <strong>Maximum range occurs at</strong> $ \theta = 45^\circ <span class="arithmatex">\(.
+- **Symmetry property**: A projectile at **\)</span> \theta <span class="arithmatex">\(** has the same range as at **\)</span> 90^\circ - \theta $<strong>.
+- </strong>Direct proportionality to<strong> $ v_0^2 $: Doubling $ v_0 $ </strong>quadruples the range**.</p>
+<hr/>
+<h2 id="analysis-of-the-range">Analysis of the Range</h2>
+<h3 id="21-effect-of-angle-of-projection"><strong>2.1 Effect of Angle of Projection</strong></h3>
+<p>From the <strong>range equation</strong>:</p>
+<div class="arithmatex">\[
+R = \frac{v_0^2 \sin(2\theta)}{g}
+\]</div>
+<p><strong>Observations:</strong>
+- <strong>$ R $ is maximized when</strong> $ \sin(2\theta) $ is maximized at <strong>$ 90^\circ $ → $ \theta = 45^\circ $</strong>.
+- <strong>Same range at $ \theta $ and $ 90^\circ - \theta $</strong> (e.g., $ 30^\circ $ and $ 60^\circ $).</p>
+<h3 id="22-effect-of-initial-velocity-v_0"><strong>2.2 Effect of Initial Velocity $ v_0 $</strong></h3>
 <ul>
-<li><strong>The maximum range</strong> occurs at <strong><span class="arithmatex">\( \theta = 45^\circ \)</span></strong>.</li>
-<li><strong>The same range</strong> is achieved for angles <strong><span class="arithmatex">\( \theta \)</span> and <span class="arithmatex">\( 90^\circ - \theta \)</span></strong>.</li>
+<li><strong>Since $ R \propto v_0^2 $, doubling $ v_0 $ quadruples the range.</strong></li>
+<li>This explains why <strong>high-speed projectiles travel much farther</strong>.</li>
+</ul>
+<h3 id="23-effect-of-gravity-g"><strong>2.3 Effect of Gravity $ g $</strong></h3>
+<ul>
+<li>If the experiment is conducted on a planet with stronger gravity, the range <strong>decreases</strong>:</li>
+</ul>
+<p>$$
+  R \propto \frac{1}{g}
+  $$</p>
+<ul>
+<li>Example: On the Moon ($ g_{\text{moon}} = 1.63 $ m/s²), the range is <strong>six times larger</strong> than on Earth.</li>
 </ul>
 <hr/>
-<h3 id="analysis-of-the-range">Analysis of the Range:</h3>
+<h2 id="practical-applications">Practical Applications</h2>
+<h3 id="31-sports-applications"><strong>3.1 Sports Applications</strong></h3>
 <ul>
-<li><strong>Symmetry Property</strong>: A projectile launched at <strong>30°</strong> has the same range as one launched at <strong>60°</strong>.</li>
-<li><strong>Effect of <span class="arithmatex">\( v_0 \)</span></strong>: Higher initial velocity <strong>increases range quadratically</strong>.</li>
-<li><strong>Effect of Gravity <span class="arithmatex">\( g \)</span></strong>: On planets with higher gravity (e.g., Jupiter), the range is <strong>significantly reduced</strong>.</li>
+<li><strong>Soccer, Basketball, Baseball</strong>:<br/>
+  Players use <strong>angles near 45°</strong> for maximum range.  </li>
+<li>Example: A soccer player aiming for a <strong>long pass</strong> will use an angle <strong>close to 45°</strong>.</li>
+<li>In basketball, <strong>high-arc shots (greater than 45°)</strong> increase the chance of the ball going through the hoop.</li>
 </ul>
-<p><strong>Numerical methods</strong> can be used for cases with air resistance or uneven terrain.</p>
-<hr/>
-<h3 id="practical-applications">Practical Applications:</h3>
-<p>Understanding projectile motion is crucial in:
-- <strong>Sports</strong>: Calculating the optimal angle to kick a soccer ball or throw a basketball.
-- <strong>Engineering</strong>: Designing projectile launchers for defense or space applications.
-- <strong>Astrophysics</strong>: Determining planetary lander trajectories and orbital insertions.</p>
+<h3 id="32-engineering-ballistics"><strong>3.2 Engineering &amp; Ballistics</strong></h3>
+<ul>
+<li><strong>Military Artillery:</strong><br/>
+  Artillery shells are launched at <strong>angles close to 45°</strong> for maximum distance.</li>
+<li><strong>Rocket Science:</strong><br/>
+  Spacecraft trajectories involve <strong>adjustments for gravity, drag, and other forces</strong>.</li>
+</ul>
+<h3 id="33-effects-of-uneven-terrain"><strong>3.3 Effects of Uneven Terrain</strong></h3>
+<p>In real-world applications, the <strong>landing height</strong> is often <strong>not the same as the launch height</strong>. In such cases, we use the <strong>quadratic formula</strong> for solving the range:</p>
+<div class="arithmatex">\[
+y_f = v_0 \sin(\theta) t - \frac{1}{2} g t^2
+\]</div>
+<p>Setting $ y_f \neq 0 $, we get:</p>
+<div class="arithmatex">\[
+t = \frac{v_0 \sin(\theta) + \sqrt{(v_0 \sin(\theta))^2 + 2 g h}}{g}
+\]</div>
+<p><strong>Example</strong>:<br/>
+- <strong>Golf shots on a hill</strong><br/>
+- <strong>Projectile motion on Mars</strong> (lower <span class="arithmatex">\( g \)</span>)<br/>
+- <strong>Missile targeting in military operations</strong> </p>
+<h3 id="34-air-resistance-wind-effects"><strong>3.4 Air Resistance &amp; Wind Effects</strong></h3>
+<ul>
+<li><strong>Air Resistance:</strong> </li>
+<li>
+<p>Real projectiles experience <strong>drag force</strong>:  </p>
+<div class="arithmatex">\[
+F_d = \frac{1}{2} C_d \rho A v^2
+\]</div>
+</li>
+<li>
+<p>This <strong>reduces the range</strong>, requiring numerical simulations.</p>
+</li>
+<li>
+<p><strong>Wind Effects:</strong> </p>
+</li>
+<li><strong>Tailwind increases range</strong>.</li>
+<li><strong>Headwind decreases range</strong>.</li>
+</ul>
+<h3 id="35-computational-modeling"><strong>3.5 Computational Modeling</strong></h3>
+<p>To study <strong>realistic</strong> cases, we use:
+- <strong>Python Simulations</strong> (Numerical Integration)
+- <strong>Machine Learning for projectile optimization</strong>
+- <strong>Monte Carlo Methods for trajectory prediction</strong></p>
+<p><strong>For example</strong>, we can modify our Python script to include air resistance using the <strong>Euler method</strong>.</p>
 <hr/>
 <h3 id="implementation-python-simulation">Implementation: Python Simulation</h3>
 <h4 id="python-plot-for-visualizing-range-vs-angle"><strong>Python plot for Visualizing Range vs. Angle</strong></h4>
 <p><img alt="alt text" src="../image.png"/></p>
 <p><img alt="alt text" src="../image-1.png"/></p>
 <p><img alt="alt text" src="../image-2.png"/></p>
-<p><img alt="alt text" src="../image-3.png"/></p>
 <p><img alt="alt text" src="../image-4.png"/></p>
 </div>
 </div><footer>
