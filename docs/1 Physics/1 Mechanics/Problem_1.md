@@ -187,10 +187,10 @@ $$
   - **Headwind decreases range**.
 
 ### **3.5 Computational Modeling**
-    To study **realistic** cases, we use:
-        - **Python Simulations** (Numerical Integration)
-        - **Machine Learning for projectile optimization**
-        - **Monte Carlo Methods for trajectory prediction**
+To study **realistic** cases, we use:
+- **Python Simulations** (Numerical Integration)
+- **Machine Learning for projectile optimization**
+- **Monte Carlo Methods for trajectory prediction**
 
 **For example**, we can modify our Python script to include air resistance using the **Euler method**.
 
