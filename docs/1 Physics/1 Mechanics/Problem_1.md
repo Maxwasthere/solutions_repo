@@ -122,7 +122,7 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 $$
 
  **Observations:**
-- **$ R $ is maximized when** $\sin(2\theta)$ is maximized at **$90^\circ $ → $ \theta = 45^\circ$**.
+- **$R$ is maximized when** $\sin(2\theta)$ is maximized at **$90^\circ$ → $\theta = 45^\circ$**.
 - **Same range at $\theta$ and $90^\circ - \theta$** (e.g., $30^\circ$ and $60^\circ$).
 
 ### **2.2 Effect of Initial Velocity $ v_0 $**
@@ -187,10 +187,10 @@ $$
   - **Headwind decreases range**.
 
 ### **3.5 Computational Modeling**
-To study **realistic** cases, we use:
-- **Python Simulations** (Numerical Integration)
-- **Machine Learning for projectile optimization**
-- **Monte Carlo Methods for trajectory prediction**
+    To study **realistic** cases, we use:
+        - **Python Simulations** (Numerical Integration)
+        - **Machine Learning for projectile optimization**
+        - **Monte Carlo Methods for trajectory prediction**
 
 **For example**, we can modify our Python script to include air resistance using the **Euler method**.
 
