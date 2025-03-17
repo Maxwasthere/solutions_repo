@@ -106,9 +106,9 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 $$
 
  **Key Insights:**
-- **Maximum range occurs at** $ \theta = 45^\circ $.
-- **Symmetry property**: A projectile at **$ \theta $** has the same range as at **$ 90^\circ - \theta $**.
-- **Direct proportionality to** $ v_0^2 $: Doubling $ v_0 $ **quadruples the range**.
+- **Maximum range occurs at** $\theta = 45^\circ$.
+- **Symmetry property**: A projectile at **$\theta$** has the same range as at **$90^\circ - \theta$**.
+- **Direct proportionality to** $v_0^2 $: Doubling $v_0$ **quadruples the range**.
 
 ---
 
