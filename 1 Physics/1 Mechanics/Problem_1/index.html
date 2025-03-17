@@ -178,7 +178,6 @@
 <p>Projectile motion is a fundamental topic in physics that showcases how forces and motion interact in two dimensions. Understanding how the <strong>range of a projectile</strong> depends on the <strong>angle of projection</strong> is crucial in various real-world applications, such as <strong>sports, engineering, and ballistics</strong>.</p>
 <p>This problem investigates the relationship between the <strong>horizontal range (R)</strong> and the <strong>angle of projection (θ)</strong> while considering how different parameters, such as <strong>initial velocity (v₀)</strong> and <strong>gravitational acceleration (g)</strong>, influence the results.</p>
 <hr/>
-<h2 id="task">Task:</h2>
 <h2 id="theoretical-foundation">Theoretical Foundation</h2>
 <h3 id="equations-of-motion-a-fundamental-approach"><strong>Equations of Motion: A Fundamental Approach</strong></h3>
 <p>Projectile motion is analyzed by breaking it into <strong>horizontal (x-axis) and vertical (y-axis) components</strong>, using <strong>Newton's Second Law</strong>:</p>
@@ -248,10 +247,12 @@ R = v_0 \cos(\theta) \times \frac{2 v_0 \sin(\theta)}{g}
 <div class="arithmatex">\[
 R = \frac{v_0^2 \sin(2\theta)}{g}
 \]</div>
-<p><strong>Key Insights:</strong>
-- <strong>Maximum range occurs at</strong> <span class="arithmatex">\(\theta = 45^\circ\)</span>.
-- <strong>Symmetry property</strong>: A projectile at <strong><span class="arithmatex">\(\theta\)</span></strong> has the same range as at <strong><span class="arithmatex">\(90^\circ - \theta\)</span></strong>.
-- <strong>Direct proportionality to</strong> <span class="arithmatex">\(v_0^2\)</span>: Doubling <span class="arithmatex">\(v_0\)</span> <strong>quadruples the range</strong>.</p>
+<p><strong>Key Insights:</strong></p>
+<ul>
+<li><strong>Maximum range occurs at</strong> <span class="arithmatex">\(\theta = 45^\circ\)</span>.</li>
+<li><strong>Symmetry property</strong>: A projectile at <strong><span class="arithmatex">\(\theta\)</span></strong> has the same range as at <strong><span class="arithmatex">\(90^\circ - \theta\)</span></strong>.</li>
+<li><strong>Direct proportionality to</strong> <span class="arithmatex">\(v_0^2\)</span>: Doubling <span class="arithmatex">\(v_0\)</span> <strong>quadruples the range</strong>.</li>
+</ul>
 <hr/>
 <h2 id="analysis-of-the-range">Analysis of the Range</h2>
 <h3 id="21-effect-of-angle-of-projection"><strong>2.1 Effect of Angle of Projection</strong></h3>
@@ -259,10 +260,12 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 <div class="arithmatex">\[
 R = \frac{v_0^2 \sin(2\theta)}{g}
 \]</div>
-<p><strong>Observations:</strong>
-- <strong><span class="arithmatex">\(R\)</span> is maximized when</strong> <span class="arithmatex">\(\sin(2\theta)\)</span> is maximized at <strong><span class="arithmatex">\(90^\circ\)</span> → <span class="arithmatex">\(\theta = 45^\circ\)</span></strong>.
-- <strong>Same range at <span class="arithmatex">\(\theta\)</span> and <span class="arithmatex">\(90^\circ - \theta\)</span></strong> (e.g., <span class="arithmatex">\(30^\circ\)</span> and <span class="arithmatex">\(60^\circ\)</span>).</p>
-<h3 id="22-effect-of-initial-velocity-v_0"><strong>2.2 Effect of Initial Velocity $ v_0 $</strong></h3>
+<p><strong>Observations:</strong></p>
+<ul>
+<li><strong><span class="arithmatex">\(R\)</span> is maximized when</strong> <span class="arithmatex">\(\sin(2\theta)\)</span> is maximized at <strong><span class="arithmatex">\(90^\circ\)</span> → <span class="arithmatex">\(\theta = 45^\circ\)</span></strong>.</li>
+<li><strong>Same range at <span class="arithmatex">\(\theta\)</span> and <span class="arithmatex">\(90^\circ - \theta\)</span></strong> (e.g., <span class="arithmatex">\(30^\circ\)</span> and <span class="arithmatex">\(60^\circ\)</span>).</li>
+</ul>
+<h3 id="22-effect-of-initial-velocity-v_0"><strong>2.2 Effect of Initial Velocity <span class="arithmatex">\(v_0\)</span></strong></h3>
 <ul>
 <li><strong>Since <span class="arithmatex">\(R \propto v_0^2\)</span>, doubling <span class="arithmatex">\(v_0\)</span> quadruples the range.</strong></li>
 <li>This explains why <strong>high-speed projectiles travel much farther</strong>.</li>
@@ -325,10 +328,12 @@ F_d = \frac{1}{2} C_d \rho A v^2
 <li><strong>Headwind decreases range</strong>.</li>
 </ul>
 <h3 id="35-computational-modeling"><strong>3.5 Computational Modeling</strong></h3>
-<p>To study <strong>realistic</strong> cases, we use:
-- <strong>Python Simulations</strong> (Numerical Integration)
-- <strong>Machine Learning for projectile optimization</strong>
-- <strong>Monte Carlo Methods for trajectory prediction</strong></p>
+<p>To study <strong>realistic</strong> cases, we use:</p>
+<ul>
+<li><strong>Python Simulations</strong> (Numerical Integration)</li>
+<li><strong>Machine Learning for projectile optimization</strong></li>
+<li><strong>Monte Carlo Methods for trajectory prediction</strong></li>
+</ul>
 <p><strong>For example</strong>, we can modify our Python script to include air resistance using the <strong>Euler method</strong>.</p>
 <hr/>
 <h3 id="implementation-python-simulation">Implementation: Python Simulation</h3>
