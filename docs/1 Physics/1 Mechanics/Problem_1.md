@@ -6,9 +6,6 @@ Projectile motion is a fundamental topic in physics that showcases how forces an
 This problem investigates the relationship between the **horizontal range (R)** and the **angle of projection (θ)** while considering how different parameters, such as **initial velocity (v₀)** and **gravitational acceleration (g)**, influence the results.
 
 ---
-
-## Task:
-
 ## Theoretical Foundation
 
 ### **Equations of Motion: A Fundamental Approach**
@@ -106,6 +103,7 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 $$
 
  **Key Insights:**
+
 - **Maximum range occurs at** $\theta = 45^\circ$.
 - **Symmetry property**: A projectile at **$\theta$** has the same range as at **$90^\circ - \theta$**.
 - **Direct proportionality to** $v_0^2$: Doubling $v_0$ **quadruples the range**.
@@ -122,10 +120,11 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 $$
 
  **Observations:**
+
 - **$R$ is maximized when** $\sin(2\theta)$ is maximized at **$90^\circ$ → $\theta = 45^\circ$**.
 - **Same range at $\theta$ and $90^\circ - \theta$** (e.g., $30^\circ$ and $60^\circ$).
 
-### **2.2 Effect of Initial Velocity $ v_0 $**
+### **2.2 Effect of Initial Velocity $v_0$**
 - **Since $R \propto v_0^2$, doubling $v_0$ quadruples the range.**
 - This explains why **high-speed projectiles travel much farther**.
 
@@ -188,6 +187,7 @@ $$
 
 ### **3.5 Computational Modeling**
 To study **realistic** cases, we use:
+
 - **Python Simulations** (Numerical Integration)
 - **Machine Learning for projectile optimization**
 - **Monte Carlo Methods for trajectory prediction**
