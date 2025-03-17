@@ -18,7 +18,7 @@ $$
 F = ma
 $$
 
-where $ F $ is the force, $ m $ is the mass of the projectile, and $ a $ is its acceleration.
+where $F$ is the force, $m$ is the mass of the projectile, and $a$ is its acceleration.
 
 ---
 
@@ -73,13 +73,13 @@ The vertical velocity and displacement equations are obtained by integrating acc
 ---
 
 ### **1.3 Time of Flight**
-The projectile hits the ground when $ y = 0 $, solving for $ t $:
+The projectile hits the ground when $y = 0$, solving for $t$:
 
 $$
 0 = v_0 \sin(\theta) t - \frac{1}{2} g t^2
 $$
 
-Factoring $ t $:
+Factoring $t$:
 
 $$
 t (v_0 \sin(\theta) - \frac{1}{2} g t) = 0
@@ -87,19 +87,19 @@ $$
 
 This gives two solutions:
 
-1. $ t = 0 $ (initial launch)
-2. $ t = \frac{2 v_0 \sin(\theta)}{g} $ (**Total time of flight**)
+1. $t = 0$ (initial launch)
+2. $t = \frac{2 v_0 \sin(\theta)}{g}$ (**Total time of flight**)
 
 ---
 
 ### **1.4 Horizontal Range (R)**
-The range is found by substituting $ T $ into $ x(t) $:
+The range is found by substituting $T$ into $x(t)$:
 
 $$
 R = v_0 \cos(\theta) \times \frac{2 v_0 \sin(\theta)}{g}
 $$
 
-Using the **trigonometric identity** $ 2 \sin(\theta) \cos(\theta) = \sin(2\theta) $ :
+Using the **trigonometric identity** $2 \sin(\theta) \cos(\theta) = \sin(2\theta)$ :
 
 $$
 R = \frac{v_0^2 \sin(2\theta)}{g}
@@ -108,7 +108,7 @@ $$
  **Key Insights:**
 - **Maximum range occurs at** $\theta = 45^\circ$.
 - **Symmetry property**: A projectile at **$\theta$** has the same range as at **$90^\circ - \theta$**.
-- **Direct proportionality to** $v_0^2 $: Doubling $v_0$ **quadruples the range**.
+- **Direct proportionality to** $v_0^2$: Doubling $v_0$ **quadruples the range**.
 
 ---
 
@@ -122,21 +122,21 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 $$
 
  **Observations:**
-- **$ R $ is maximized when** $ \sin(2\theta) $ is maximized at **$ 90^\circ $ → $ \theta = 45^\circ $**.
-- **Same range at $ \theta $ and $ 90^\circ - \theta $** (e.g., $ 30^\circ $ and $ 60^\circ $).
+- **$ R $ is maximized when** $\sin(2\theta)$ is maximized at **$90^\circ $ → $ \theta = 45^\circ$**.
+- **Same range at $\theta$ and $90^\circ - \theta$** (e.g., $30^\circ$ and $60^\circ$).
 
 ### **2.2 Effect of Initial Velocity $ v_0 $**
-- **Since $ R \propto v_0^2 $, doubling $ v_0 $ quadruples the range.**
+- **Since $R \propto v_0^2$, doubling $v_0$ quadruples the range.**
 - This explains why **high-speed projectiles travel much farther**.
 
-### **2.3 Effect of Gravity $ g $**
+### **2.3 Effect of Gravity $g$**
 - If the experiment is conducted on a planet with stronger gravity, the range **decreases**:
 
   $$
   R \propto \frac{1}{g}
   $$
 
-- Example: On the Moon ($ g_{\text{moon}} = 1.63 $ m/s²), the range is **six times larger** than on Earth.
+- Example: On the Moon ($g_{\text{moon}} = 1.63$ m/s²), the range is **six times larger** than on Earth.
 
 ---
 
@@ -161,7 +161,7 @@ $$
 y_f = v_0 \sin(\theta) t - \frac{1}{2} g t^2
 $$
 
-Setting $ y_f \neq 0 $, we get:
+Setting $y_f \neq 0$, we get:
 
 $$
 t = \frac{v_0 \sin(\theta) + \sqrt{(v_0 \sin(\theta))^2 + 2 g h}}{g}
@@ -169,7 +169,7 @@ $$
 
  **Example**:  
 - **Golf shots on a hill**  
-- **Projectile motion on Mars** (lower \( g \))  
+- **Projectile motion on Mars** (lower $g$)  
 - **Missile targeting in military operations**  
 
 ### **3.4 Air Resistance & Wind Effects**
