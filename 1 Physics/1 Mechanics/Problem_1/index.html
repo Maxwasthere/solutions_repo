@@ -48,51 +48,61 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1: Investigating the Range as a Function of the Angle of Projection</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation:</a>
-</li>
 <li class="toctree-l3"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#equations-of-motion-a-fundamental-approach">Equations of Motion: A Fundamental Approach</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#11-horizontal-motion-constant-velocity">1.1 Horizontal Motion: Constant Velocity</a>
+<li class="toctree-l4"><a class="reference internal" href="#horizontal-motion-constant-velocity">Horizontal Motion: Constant Velocity</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#12-vertical-motion-accelerated-motion-due-to-gravity">1.2 Vertical Motion: Accelerated Motion Due to Gravity</a>
+<li class="toctree-l4"><a class="reference internal" href="#vertical-motion-accelerated-motion-due-to-gravity">Vertical Motion: Accelerated Motion Due to Gravity</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#13-time-of-flight">1.3 Time of Flight</a>
+<li class="toctree-l4"><a class="reference internal" href="#time-of-flight">Time of Flight</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#14-horizontal-range-r">1.4 Horizontal Range (R)</a>
+<li class="toctree-l4"><a class="reference internal" href="#horizontal-range-r">Horizontal Range (R)</a>
 </li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#analysis-of-the-range">Analysis of the Range</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#21-effect-of-angle-of-projection">2.1 Effect of Angle of Projection</a>
+<li class="toctree-l4"><a class="reference internal" href="#effect-of-angle-of-projection">Effect of Angle of Projection</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#22-effect-of-initial-velocity-v_0">2.2 Effect of Initial Velocity \(v_0\)</a>
+<li class="toctree-l4"><a class="reference internal" href="#effect-of-initial-velocity-v_0">Effect of Initial Velocity \(v_0\)</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#23-effect-of-gravity-g">2.3 Effect of Gravity \(g\)</a>
+<li class="toctree-l4"><a class="reference internal" href="#effect-of-gravity-g">Effect of Gravity \(g\)</a>
 </li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#practical-applications">Practical Applications</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#31-sports-applications">3.1 Sports Applications</a>
+<li class="toctree-l4"><a class="reference internal" href="#sports-applications">Sports Applications</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#32-engineering-ballistics">3.2 Engineering &amp; Ballistics</a>
+<li class="toctree-l4"><a class="reference internal" href="#engineering-ballistics">Engineering &amp; Ballistics</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#33-effects-of-uneven-terrain">3.3 Effects of Uneven Terrain</a>
+<li class="toctree-l4"><a class="reference internal" href="#effects-of-uneven-terrain">Effects of Uneven Terrain</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#34-air-resistance-wind-effects">3.4 Air Resistance &amp; Wind Effects</a>
+<li class="toctree-l4"><a class="reference internal" href="#air-resistance-wind-effects">Air Resistance &amp; Wind Effects</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#35-computational-modeling">3.5 Computational Modeling</a>
+<li class="toctree-l4"><a class="reference internal" href="#computational-modeling">Computational Modeling</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#implementation-python-simulation">Implementation: Python Simulation</a>
 </li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#limitations-realistic-considerations">Limitations &amp; Realistic Considerations</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#air-resistance">Air Resistance:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#wind-effects">Wind Effects:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#uneven-terrain">Uneven Terrain:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#extending-the-model">Extending the Model:</a>
+</li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Forced Damped Pendulum Physics Lab</a>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2: Forced Damped Pendulum Physics Lab</a>
 </li>
 </ul>
 </li>
@@ -214,10 +224,6 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1-investigating-the-range-as-a-function-of-the-angle-of-projection">Problem 1: Investigating the Range as a Function of the Angle of Projection</h1>
-<h3 id="motivation">Motivation:</h3>
-<p>Projectile motion is a fundamental topic in physics that showcases how forces and motion interact in two dimensions. Understanding how the <strong>range of a projectile</strong> depends on the <strong>angle of projection</strong> is crucial in various real-world applications, such as <strong>sports, engineering, and ballistics</strong>.</p>
-<p>This problem investigates the relationship between the <strong>horizontal range (R)</strong> and the <strong>angle of projection (θ)</strong> while considering how different parameters, such as <strong>initial velocity (v₀)</strong> and <strong>gravitational acceleration (g)</strong>, influence the results.</p>
-<hr/>
 <h2 id="theoretical-foundation">Theoretical Foundation</h2>
 <h3 id="equations-of-motion-a-fundamental-approach"><strong>Equations of Motion: A Fundamental Approach</strong></h3>
 <p>Projectile motion is analyzed by breaking it into <strong>horizontal (x-axis) and vertical (y-axis) components</strong>, using <strong>Newton's Second Law</strong>:</p>
@@ -226,7 +232,7 @@ F = ma
 \]</div>
 <p>where <span class="arithmatex">\(F\)</span> is the force, <span class="arithmatex">\(m\)</span> is the mass of the projectile, and <span class="arithmatex">\(a\)</span> is its acceleration.</p>
 <hr/>
-<h3 id="11-horizontal-motion-constant-velocity"><strong>1.1 Horizontal Motion: Constant Velocity</strong></h3>
+<h3 id="horizontal-motion-constant-velocity"><strong>Horizontal Motion: Constant Velocity</strong></h3>
 <p>Since no force (neglecting air resistance) acts in the horizontal direction:</p>
 <div class="arithmatex">\[
 F_x = 0 \quad \Rightarrow \quad a_x = 0
@@ -240,7 +246,7 @@ v_x = v_0 \cos(\theta)
 x(t) = v_0 \cos(\theta) t
 \]</div>
 <hr/>
-<h3 id="12-vertical-motion-accelerated-motion-due-to-gravity"><strong>1.2 Vertical Motion: Accelerated Motion Due to Gravity</strong></h3>
+<h3 id="vertical-motion-accelerated-motion-due-to-gravity"><strong>Vertical Motion: Accelerated Motion Due to Gravity</strong></h3>
 <p>In the <strong>vertical direction</strong>, gravity acts downward:</p>
 <div class="arithmatex">\[
 F_y = -mg
@@ -263,7 +269,7 @@ m a_y = -mg \quad \Rightarrow \quad a_y = -g
    y(t) = v_0 \sin(\theta) t - \frac{1}{2} g t^2
    $$</p>
 <hr/>
-<h3 id="13-time-of-flight"><strong>1.3 Time of Flight</strong></h3>
+<h3 id="time-of-flight"><strong>Time of Flight</strong></h3>
 <p>The projectile hits the ground when <span class="arithmatex">\(y = 0\)</span>, solving for <span class="arithmatex">\(t\)</span>:</p>
 <div class="arithmatex">\[
 0 = v_0 \sin(\theta) t - \frac{1}{2} g t^2
@@ -278,7 +284,7 @@ t (v_0 \sin(\theta) - \frac{1}{2} g t) = 0
 <li><span class="arithmatex">\(t = \frac{2 v_0 \sin(\theta)}{g}\)</span> (<strong>Total time of flight</strong>)</li>
 </ol>
 <hr/>
-<h3 id="14-horizontal-range-r"><strong>1.4 Horizontal Range (R)</strong></h3>
+<h3 id="horizontal-range-r"><strong>Horizontal Range (R)</strong></h3>
 <p>The range is found by substituting <span class="arithmatex">\(T\)</span> into <span class="arithmatex">\(x(t)\)</span>:</p>
 <div class="arithmatex">\[
 R = v_0 \cos(\theta) \times \frac{2 v_0 \sin(\theta)}{g}
@@ -295,7 +301,7 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 </ul>
 <hr/>
 <h2 id="analysis-of-the-range">Analysis of the Range</h2>
-<h3 id="21-effect-of-angle-of-projection"><strong>2.1 Effect of Angle of Projection</strong></h3>
+<h3 id="effect-of-angle-of-projection"><strong>Effect of Angle of Projection</strong></h3>
 <p>From the <strong>range equation</strong>:</p>
 <div class="arithmatex">\[
 R = \frac{v_0^2 \sin(2\theta)}{g}
@@ -305,12 +311,12 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 <li><strong><span class="arithmatex">\(R\)</span> is maximized when</strong> <span class="arithmatex">\(\sin(2\theta)\)</span> is maximized at <strong><span class="arithmatex">\(90^\circ\)</span> → <span class="arithmatex">\(\theta = 45^\circ\)</span></strong>.</li>
 <li><strong>Same range at <span class="arithmatex">\(\theta\)</span> and <span class="arithmatex">\(90^\circ - \theta\)</span></strong> (e.g., <span class="arithmatex">\(30^\circ\)</span> and <span class="arithmatex">\(60^\circ\)</span>).</li>
 </ul>
-<h3 id="22-effect-of-initial-velocity-v_0"><strong>2.2 Effect of Initial Velocity <span class="arithmatex">\(v_0\)</span></strong></h3>
+<h3 id="effect-of-initial-velocity-v_0"><strong>Effect of Initial Velocity <span class="arithmatex">\(v_0\)</span></strong></h3>
 <ul>
 <li><strong>Since <span class="arithmatex">\(R \propto v_0^2\)</span>, doubling <span class="arithmatex">\(v_0\)</span> quadruples the range.</strong></li>
 <li>This explains why <strong>high-speed projectiles travel much farther</strong>.</li>
 </ul>
-<h3 id="23-effect-of-gravity-g"><strong>2.3 Effect of Gravity <span class="arithmatex">\(g\)</span></strong></h3>
+<h3 id="effect-of-gravity-g"><strong>Effect of Gravity <span class="arithmatex">\(g\)</span></strong></h3>
 <ul>
 <li>If the experiment is conducted on a planet with stronger gravity, the range <strong>decreases</strong>:</li>
 </ul>
@@ -322,21 +328,21 @@ R = \frac{v_0^2 \sin(2\theta)}{g}
 </ul>
 <hr/>
 <h2 id="practical-applications">Practical Applications</h2>
-<h3 id="31-sports-applications"><strong>3.1 Sports Applications</strong></h3>
+<h3 id="sports-applications"><strong>Sports Applications</strong></h3>
 <ul>
 <li><strong>Soccer, Basketball, Baseball</strong>:<br/>
   Players use <strong>angles near 45°</strong> for maximum range.  </li>
 <li>Example: A soccer player aiming for a <strong>long pass</strong> will use an angle <strong>close to 45°</strong>.</li>
 <li>In basketball, <strong>high-arc shots (greater than 45°)</strong> increase the chance of the ball going through the hoop.</li>
 </ul>
-<h3 id="32-engineering-ballistics"><strong>3.2 Engineering &amp; Ballistics</strong></h3>
+<h3 id="engineering-ballistics"><strong>Engineering &amp; Ballistics</strong></h3>
 <ul>
 <li><strong>Military Artillery:</strong><br/>
   Artillery shells are launched at <strong>angles close to 45°</strong> for maximum distance.</li>
 <li><strong>Rocket Science:</strong><br/>
   Spacecraft trajectories involve <strong>adjustments for gravity, drag, and other forces</strong>.</li>
 </ul>
-<h3 id="33-effects-of-uneven-terrain"><strong>3.3 Effects of Uneven Terrain</strong></h3>
+<h3 id="effects-of-uneven-terrain"><strong>Effects of Uneven Terrain</strong></h3>
 <p>In real-world applications, the <strong>landing height</strong> is often <strong>not the same as the launch height</strong>. In such cases, we use the <strong>quadratic formula</strong> for solving the range:</p>
 <div class="arithmatex">\[
 y_f = v_0 \sin(\theta) t - \frac{1}{2} g t^2
@@ -349,7 +355,7 @@ t = \frac{v_0 \sin(\theta) + \sqrt{(v_0 \sin(\theta))^2 + 2 g h}}{g}
 - <strong>Golf shots on a hill</strong><br/>
 - <strong>Projectile motion on Mars</strong> (lower <span class="arithmatex">\(g\)</span>)<br/>
 - <strong>Missile targeting in military operations</strong> </p>
-<h3 id="34-air-resistance-wind-effects"><strong>3.4 Air Resistance &amp; Wind Effects</strong></h3>
+<h3 id="air-resistance-wind-effects"><strong>Air Resistance &amp; Wind Effects</strong></h3>
 <ul>
 <li><strong>Air Resistance:</strong> </li>
 <li>
@@ -367,7 +373,7 @@ F_d = \frac{1}{2} C_d \rho A v^2
 <li><strong>Tailwind increases range</strong>.</li>
 <li><strong>Headwind decreases range</strong>.</li>
 </ul>
-<h3 id="35-computational-modeling"><strong>3.5 Computational Modeling</strong></h3>
+<h3 id="computational-modeling"><strong>Computational Modeling</strong></h3>
 <p>To study <strong>realistic</strong> cases, we use:</p>
 <ul>
 <li><strong>Python Simulations</strong> (Numerical Integration)</li>
@@ -382,11 +388,45 @@ F_d = \frac{1}{2} C_d \rho A v^2
 <p><img alt="alt text" src="../image-1.png"/></p>
 <p><img alt="alt text" src="../image-2.png"/></p>
 <p><img alt="alt text" src="../image-4.png"/></p>
+<h2 id="limitations-realistic-considerations">Limitations &amp; Realistic Considerations</h2>
+<p>While the above equations assume ideal projectile motion, real-world conditions introduce complexities:</p>
+<h3 id="air-resistance">Air Resistance:</h3>
+<ul>
+<li>In the real world, air drag reduces range.</li>
+<li>A more accurate model includes the drag force equation:</li>
+</ul>
+<p>$$
+  F_d = \frac{1}{2} C_d \rho A v^2
+  $$</p>
+<p>where:
+  - <span class="arithmatex">\(F_d\)</span> = Drag force
+  - <span class="arithmatex">\(C_d\)</span> = Drag coefficient
+  - <span class="arithmatex">\(\rho\)</span> = Air density
+  - <span class="arithmatex">\(A\)</span> = Cross-sectional area of the projectile
+  - <span class="arithmatex">\(v\)</span> = Velocity of the projectile</p>
+<ul>
+<li>Computational methods like the Runge-Kutta method can simulate trajectories with air resistance.</li>
+</ul>
+<h3 id="wind-effects">Wind Effects:</h3>
+<ul>
+<li>Wind alters both horizontal and vertical motion.</li>
+<li>A tailwind increases range, while a headwind reduces it.</li>
+</ul>
+<h3 id="uneven-terrain">Uneven Terrain:</h3>
+<ul>
+<li>If the projectile lands at a different height than it was launched, the standard range equation does not apply.</li>
+<li>Numerical integration methods can solve such cases.</li>
+</ul>
+<h3 id="extending-the-model">Extending the Model:</h3>
+<ul>
+<li>Computational tools such as Python, MATLAB, or simulations in physics engines can provide more realistic trajectories.</li>
+<li>Numerical methods (Euler’s method, Runge-Kutta) allow solving cases where air resistance is considered.</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
 <a class="btn btn-neutral float-left" href="../../.." title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../Problem_2/" title="Forced Damped Pendulum Physics Lab">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral float-right" href="../Problem_2/" title="Problem 2: Forced Damped Pendulum Physics Lab">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
 <div role="contentinfo">
