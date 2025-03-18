@@ -94,7 +94,9 @@ The forced damped pendulum model, while insightful, has several limitations that
 
 - **Small-Angle Approximation ($\sin\theta \approx \theta$)**: The linear approximation simplifies the differential equation by assuming $\sin\theta \approx \theta$, which holds only for small angular displacements ($\theta \ll 1$). For large oscillations, this assumption underestimates the nonlinear effects of the $\sin\theta$ term, leading to inaccuracies in predicting the pendulum's behavior, especially in regimes where chaotic motion or large-amplitude swings occur.
 
+
 - **Linear Damping Assumption ($b \frac{d\theta}{dt}$)**: The model assumes damping is linearly proportional to the angular velocity, represented by the term $b \frac{d\theta}{dt}$. In reality, damping in physical systems often exhibits nonlinear behavior, such as quadratic drag (proportional to $\left(\frac{d\theta}{dt}\right)^2$) experienced by objects moving through air or other fluids. This simplification can lead to discrepancies in energy dissipation rates, particularly for high velocities.
+
 
 - **Periodic Driving Force ($A \cos(\omega t)$)**: The external forcing term in the model is a simple harmonic function, $A \cos(\omega t)$, which assumes a single-frequency, periodic drive. Real-world systems often experience more complex forces, such as stochastic (random) forces from environmental noise or multi-frequency driving from multiple sources. This limitation restricts the model's ability to simulate realistic scenarios where forces are not purely periodic.
 
@@ -104,6 +106,8 @@ To address these limitations and enhance the model's applicability, the followin
 
 - **Introduce Nonlinear Damping**: Incorporating nonlinear damping, such as quadratic drag ($\propto \left(\frac{d\theta}{dt}\right)^2$), would better model air resistance and other velocity-dependent forces in real systems. This could be implemented by modifying the damping term in the differential equation to $b \frac{d\theta}{dt} + c \left(\frac{d\theta}{dt}\right)^2$, where $c$ is a coefficient for quadratic damping. Such an extension would improve accuracy for large oscillations and high velocities.
 
+
 - **Use Non-Periodic Driving Forces**: Replacing the periodic driving force $A \cos(\omega t)$ with non-periodic or stochastic forces would allow the model to simulate real-world conditions more effectively. For example, adding a random noise term or a superposition of multiple frequencies ($A_1 \cos(\omega_1 t) + A_2 \cos(\omega_2 t)$) could mimic environmental perturbations, such as wind gusts or mechanical vibrations, providing a more realistic representation of external influences.
+
 
 - **Incorporate Multi-Degree-of-Freedom Systems**: Extending the model to include multi-degree-of-freedom systems, such as coupled pendulums, would enable the study of collective dynamics and interactions between multiple oscillatory components. For instance, two pendulums connected by a spring could exhibit synchronization or chaotic behavior, offering insights into complex systems like coupled oscillators in physics, biology (e.g., neural networks), or engineering (e.g., power grids).
