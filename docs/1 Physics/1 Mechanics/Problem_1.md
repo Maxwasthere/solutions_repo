@@ -1,11 +1,5 @@
 # Problem 1: Investigating the Range as a Function of the Angle of Projection
 
-###  Motivation:
-Projectile motion is a fundamental topic in physics that showcases how forces and motion interact in two dimensions. Understanding how the **range of a projectile** depends on the **angle of projection** is crucial in various real-world applications, such as **sports, engineering, and ballistics**.
-
-This problem investigates the relationship between the **horizontal range (R)** and the **angle of projection (θ)** while considering how different parameters, such as **initial velocity (v₀)** and **gravitational acceleration (g)**, influence the results.
-
----
 ## Theoretical Foundation
 
 ### **Equations of Motion: A Fundamental Approach**
@@ -19,7 +13,7 @@ where $F$ is the force, $m$ is the mass of the projectile, and $a$ is its accele
 
 ---
 
-### **1.1 Horizontal Motion: Constant Velocity**
+### **Horizontal Motion: Constant Velocity**
 Since no force (neglecting air resistance) acts in the horizontal direction:
 
 $$
@@ -40,7 +34,7 @@ $$
 
 ---
 
-### **1.2 Vertical Motion: Accelerated Motion Due to Gravity**
+### **Vertical Motion: Accelerated Motion Due to Gravity**
 In the **vertical direction**, gravity acts downward:
 
 $$
@@ -69,7 +63,7 @@ The vertical velocity and displacement equations are obtained by integrating acc
 
 ---
 
-### **1.3 Time of Flight**
+### **Time of Flight**
 The projectile hits the ground when $y = 0$, solving for $t$:
 
 $$
@@ -89,7 +83,7 @@ This gives two solutions:
 
 ---
 
-### **1.4 Horizontal Range (R)**
+### **Horizontal Range (R)**
 The range is found by substituting $T$ into $x(t)$:
 
 $$
@@ -112,7 +106,7 @@ $$
 
 ## Analysis of the Range
 
-### **2.1 Effect of Angle of Projection**
+### **Effect of Angle of Projection**
 From the **range equation**:
 
 $$
@@ -124,11 +118,11 @@ $$
 - **$R$ is maximized when** $\sin(2\theta)$ is maximized at **$90^\circ$ → $\theta = 45^\circ$**.
 - **Same range at $\theta$ and $90^\circ - \theta$** (e.g., $30^\circ$ and $60^\circ$).
 
-### **2.2 Effect of Initial Velocity $v_0$**
+### **Effect of Initial Velocity $v_0$**
 - **Since $R \propto v_0^2$, doubling $v_0$ quadruples the range.**
 - This explains why **high-speed projectiles travel much farther**.
 
-### **2.3 Effect of Gravity $g$**
+### **Effect of Gravity $g$**
 - If the experiment is conducted on a planet with stronger gravity, the range **decreases**:
 
   $$
@@ -141,19 +135,19 @@ $$
 
 ## Practical Applications
 
-### **3.1 Sports Applications**
+### **Sports Applications**
 - **Soccer, Basketball, Baseball**:  
   Players use **angles near 45°** for maximum range.  
   - Example: A soccer player aiming for a **long pass** will use an angle **close to 45°**.
   - In basketball, **high-arc shots (greater than 45°)** increase the chance of the ball going through the hoop.
 
-### **3.2 Engineering & Ballistics**
+### **Engineering & Ballistics**
 - **Military Artillery:**  
   Artillery shells are launched at **angles close to 45°** for maximum distance.
 - **Rocket Science:**  
   Spacecraft trajectories involve **adjustments for gravity, drag, and other forces**.
 
-### **3.3 Effects of Uneven Terrain**
+### **Effects of Uneven Terrain**
 In real-world applications, the **landing height** is often **not the same as the launch height**. In such cases, we use the **quadratic formula** for solving the range:
 
 $$
@@ -171,7 +165,7 @@ $$
 - **Projectile motion on Mars** (lower $g$)  
 - **Missile targeting in military operations**  
 
-### **3.4 Air Resistance & Wind Effects**
+### **Air Resistance & Wind Effects**
 - **Air Resistance:**  
   - Real projectiles experience **drag force**:  
 
@@ -185,7 +179,7 @@ $$
   - **Tailwind increases range**.
   - **Headwind decreases range**.
 
-### **3.5 Computational Modeling**
+### **Computational Modeling**
 To study **realistic** cases, we use:
 
 - **Python Simulations** (Numerical Integration)
@@ -206,3 +200,40 @@ To study **realistic** cases, we use:
 ![alt text](image-2.png)
 
 ![alt text](image-4.png)
+
+## Limitations & Realistic Considerations
+
+While the above equations assume ideal projectile motion, real-world conditions introduce complexities:
+
+### Air Resistance:
+
+- In the real world, air drag reduces range.
+- A more accurate model includes the drag force equation:
+
+  $$
+  F_d = \frac{1}{2} C_d \rho A v^2
+  $$
+
+  where:
+  - $F_d$ = Drag force
+  - $C_d$ = Drag coefficient
+  - $\rho$ = Air density
+  - $A$ = Cross-sectional area of the projectile
+  - $v$ = Velocity of the projectile
+
+- Computational methods like the Runge-Kutta method can simulate trajectories with air resistance.
+
+### Wind Effects:
+
+- Wind alters both horizontal and vertical motion.
+- A tailwind increases range, while a headwind reduces it.
+
+### Uneven Terrain:
+
+- If the projectile lands at a different height than it was launched, the standard range equation does not apply.
+- Numerical integration methods can solve such cases.
+
+### Extending the Model:
+
+- Computational tools such as Python, MATLAB, or simulations in physics engines can provide more realistic trajectories.
+- Numerical methods (Euler’s method, Runge-Kutta) allow solving cases where air resistance is considered.

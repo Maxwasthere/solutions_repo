@@ -1,6 +1,6 @@
-# Forced Damped Pendulum Physics Lab
+# Problem 2: Forced Damped Pendulum Physics Lab
 
-## 1. Theoretical Foundation
+## Theoretical Foundation
 
 ### Differential Equation and Small-Angle Approximation
 
