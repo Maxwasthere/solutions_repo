@@ -215,6 +215,7 @@ While the above equations assume ideal projectile motion, real-world conditions 
   $$
 
   where:
+  
   - $F_d$ = Drag force
   - $C_d$ = Drag coefficient
   - $\rho$ = Air density
