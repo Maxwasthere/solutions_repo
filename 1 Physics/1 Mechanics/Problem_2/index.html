@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Forced Damped Pendulum Physics Lab - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Forced Damped Pendulum Physics Lab";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -48,8 +48,40 @@
 <ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1: Investigating the Range as a Function of the Angle of Projection</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Forced Damped Pendulum Physics Lab</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#differential-equation-and-small-angle-approximation">Differential Equation and Small-Angle Approximation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#resonance-conditions-and-energy-implications">Resonance Conditions and Energy Implications</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-dynamics">2. Analysis of Dynamics</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#influence-of-parameters">Influence of Parameters</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#transition-to-chaotic-motion">Transition to Chaotic Motion</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-implementation">4. Implementation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#computational-model">Computational Model</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-limitations-and-extensions">5. Limitations and Extensions</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#model-limitations">Model Limitations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#potential-extensions">Potential Extensions</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +195,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Forced Damped Pendulum Physics Lab</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +203,94 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="forced-damped-pendulum-physics-lab">Forced Damped Pendulum Physics Lab</h1>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="differential-equation-and-small-angle-approximation">Differential Equation and Small-Angle Approximation</h3>
+<p>The motion of a forced damped pendulum is governed by the following differential equation:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \sin\theta = A \cos(\omega t)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(\theta\)</span> is the angular displacement,</li>
+<li><span class="arithmatex">\(b\)</span> is the damping coefficient,</li>
+<li><span class="arithmatex">\(g\)</span> is the acceleration due to gravity (<span class="arithmatex">\(9.81 \, \text{m/s}^2\)</span>),</li>
+<li><span class="arithmatex">\(L\)</span> is the length of the pendulum,</li>
+<li><span class="arithmatex">\(A\)</span> is the amplitude of the external driving force,</li>
+<li><span class="arithmatex">\(\omega\)</span> is the driving frequency,</li>
+<li><span class="arithmatex">\(t\)</span> is time.</li>
+</ul>
+<p>For small-angle oscillations (<span class="arithmatex">\(\theta \ll 1\)</span>), we can approximate <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, simplifying the equation to a linear form:</p>
+<div class="arithmatex">\[
+\frac{d^2\theta}{dt^2} + b \frac{d\theta}{dt} + \frac{g}{L} \theta = A \cos(\omega t)
+\]</div>
+<p>This is a second-order linear differential equation with a periodic driving term. The homogeneous solution (without the driving force) is:</p>
+<div class="arithmatex">\[
+\theta_h(t) = e^{-\frac{b}{2}t} \left( C_1 \cos(\omega_0 t) + C_2 \sin(\omega_0 t) \right)
+\]</div>
+<p>Where <span class="arithmatex">\(\omega_0 = \sqrt{\frac{g}{L} - \left(\frac{b}{2}\right)^2}\)</span> is the damped natural frequency, and <span class="arithmatex">\(C_1, C_2\)</span> are constants determined by initial conditions. The particular solution (due to the driving force) takes the form:</p>
+<div class="arithmatex">\[
+\theta_p(t) = B \cos(\omega t) + C \sin(\omega t)
+\]</div>
+<p>Substituting into the differential equation and solving for <span class="arithmatex">\(B\)</span> and <span class="arithmatex">\(C\)</span>, we find the steady-state amplitude depends on the driving frequency <span class="arithmatex">\(\omega\)</span>. The total solution is:</p>
+<div class="arithmatex">\[
+\theta(t) = \theta_h(t) + \theta_p(t)
+\]</div>
+<h3 id="resonance-conditions-and-energy-implications">Resonance Conditions and Energy Implications</h3>
+<p>Resonance occurs when the driving frequency <span class="arithmatex">\(\omega\)</span> approaches the natural frequency <span class="arithmatex">\(\omega_n = \sqrt{\frac{g}{L}}\)</span>. The amplitude of oscillation peaks at resonance, and the energy transfer from the driving force to the pendulum is maximized. The resonance frequency shifts slightly due to damping:</p>
+<div class="arithmatex">\[
+\omega_r = \sqrt{\omega_n^2 - \left(\frac{b}{2}\right)^2}
+\]</div>
+<p>At resonance, the system absorbs energy efficiently, but damping dissipates energy as heat, limiting the amplitude growth. For low damping (<span class="arithmatex">\(b \to 0\)</span>), the amplitude can grow significantly, while high damping suppresses the resonance peak.</p>
+<h2 id="2-analysis-of-dynamics">2. Analysis of Dynamics</h2>
+<h3 id="influence-of-parameters">Influence of Parameters</h3>
+<ul>
+<li><strong>Damping Coefficient (<span class="arithmatex">\(b\)</span>)</strong>: Higher damping reduces the amplitude of oscillations and shifts the system toward overdamped behavior (<span class="arithmatex">\(b^2 &gt; 4\omega_n^2\)</span>). Low damping allows sustained oscillations and sharper resonance.</li>
+<li><strong>Driving Amplitude (<span class="arithmatex">\(A\)</span>)</strong>: Increasing <span class="arithmatex">\(A\)</span> linearly increases the steady-state amplitude of oscillations.</li>
+<li><strong>Driving Frequency (<span class="arithmatex">\(\omega\)</span>)</strong>: When <span class="arithmatex">\(\omega \approx \omega_n\)</span>, resonance amplifies the motion. Far from resonance, the pendulum oscillates at the driving frequency with reduced amplitude.</li>
+</ul>
+<h3 id="transition-to-chaotic-motion">Transition to Chaotic Motion</h3>
+<p>For large driving amplitudes or specific frequencies, the system can exhibit chaotic behavior due to the nonlinearity of <span class="arithmatex">\(\sin\theta\)</span>. Chaos arises when the pendulum undergoes period-doubling bifurcations, leading to unpredictable motion. This can be observed in phase portraits (plots of <span class="arithmatex">\(\theta\)</span> vs. <span class="arithmatex">\(\frac{d\theta}{dt}\)</span>) and Poincaré sections (snapshots of the phase space at intervals of the driving period).</p>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<p>The forced damped pendulum model applies to several real-world scenarios:</p>
+<ul>
+<li><strong>Energy Harvesting Devices</strong>: Piezoelectric devices can use oscillatory motion (similar to a forced pendulum) to convert mechanical vibrations into electrical energy, such as in wearable tech or structural monitoring.</li>
+<li><strong>Suspension Bridges</strong>: Bridges experience wind-induced oscillations, modeled as forced damped systems, where damping prevents catastrophic resonance (e.g., Tacoma Narrows Bridge collapse).</li>
+<li><strong>Oscillating Circuits</strong>: In electrical engineering, RLC circuits behave analogously to a forced damped pendulum, with applications in signal processing and tuning.</li>
+</ul>
+<h2 id="4-implementation">4. Implementation</h2>
+<h3 id="computational-model">Computational Model</h3>
+<p>Below is a graph that simulated the forced damped pendulum using the Runge-Kutta 4th-order (RK4) method, which handles the nonlinear <span class="arithmatex">\(\sin\theta\)</span> term accurately. The script plots the time series, phase portrait, and Poincaré section.</p>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<p><img alt="alt text" src="../image-7.png"/></p>
+<h2 id="5-limitations-and-extensions">5. Limitations and Extensions</h2>
+<h3 id="model-limitations">Model Limitations</h3>
+<p>The forced damped pendulum model, while insightful, has several limitations that affect its applicability to real-world systems:</p>
+<ul>
+<li>
+<p><strong>Small-Angle Approximation (<span class="arithmatex">\(\sin\theta \approx \theta\)</span>)</strong>: The linear approximation simplifies the differential equation by assuming <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, which holds only for small angular displacements (<span class="arithmatex">\(\theta \ll 1\)</span>). For large oscillations, this assumption underestimates the nonlinear effects of the <span class="arithmatex">\(\sin\theta\)</span> term, leading to inaccuracies in predicting the pendulum's behavior, especially in regimes where chaotic motion or large-amplitude swings occur.</p>
+</li>
+<li>
+<p><strong>Linear Damping Assumption (<span class="arithmatex">\(b \frac{d\theta}{dt}\)</span>)</strong>: The model assumes damping is linearly proportional to the angular velocity, represented by the term <span class="arithmatex">\(b \frac{d\theta}{dt}\)</span>. In reality, damping in physical systems often exhibits nonlinear behavior, such as quadratic drag (proportional to <span class="arithmatex">\(\left(\frac{d\theta}{dt}\right)^2\)</span>) experienced by objects moving through air or other fluids. This simplification can lead to discrepancies in energy dissipation rates, particularly for high velocities.</p>
+</li>
+<li>
+<p><strong>Periodic Driving Force (<span class="arithmatex">\(A \cos(\omega t)\)</span>)</strong>: The external forcing term in the model is a simple harmonic function, <span class="arithmatex">\(A \cos(\omega t)\)</span>, which assumes a single-frequency, periodic drive. Real-world systems often experience more complex forces, such as stochastic (random) forces from environmental noise or multi-frequency driving from multiple sources. This limitation restricts the model's ability to simulate realistic scenarios where forces are not purely periodic.</p>
+</li>
+</ul>
+<h3 id="potential-extensions">Potential Extensions</h3>
+<p>To address these limitations and enhance the model's applicability, the following extensions can be explored:</p>
+<ul>
+<li>
+<p><strong>Introduce Nonlinear Damping</strong>: Incorporating nonlinear damping, such as quadratic drag (<span class="arithmatex">\(\propto \left(\frac{d\theta}{dt}\right)^2\)</span>), would better model air resistance and other velocity-dependent forces in real systems. This could be implemented by modifying the damping term in the differential equation to <span class="arithmatex">\(b \frac{d\theta}{dt} + c \left(\frac{d\theta}{dt}\right)^2\)</span>, where <span class="arithmatex">\(c\)</span> is a coefficient for quadratic damping. Such an extension would improve accuracy for large oscillations and high velocities.</p>
+</li>
+<li>
+<p><strong>Use Non-Periodic Driving Forces</strong>: Replacing the periodic driving force <span class="arithmatex">\(A \cos(\omega t)\)</span> with non-periodic or stochastic forces would allow the model to simulate real-world conditions more effectively. For example, adding a random noise term or a superposition of multiple frequencies (<span class="arithmatex">\(A_1 \cos(\omega_1 t) + A_2 \cos(\omega_2 t)\)</span>) could mimic environmental perturbations, such as wind gusts or mechanical vibrations, providing a more realistic representation of external influences.</p>
+</li>
+<li>
+<p><strong>Incorporate Multi-Degree-of-Freedom Systems</strong>: Extending the model to include multi-degree-of-freedom systems, such as coupled pendulums, would enable the study of collective dynamics and interactions between multiple oscillatory components. For instance, two pendulums connected by a spring could exhibit synchronization or chaotic behavior, offering insights into complex systems like coupled oscillators in physics, biology (e.g., neural networks), or engineering (e.g., power grids).</p>
+</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
