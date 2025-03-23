@@ -10,6 +10,7 @@ For circular orbits, Newton’s form of Kepler’s Third Law is derived using Ne
 $$ F = \frac{GMm}{r^2} = m \frac{v^2}{r} $$
 
 where:
+
 - $G$ is the gravitational constant,
 - $M$ is the mass of the central body,
 - $m$ is the mass of the orbiting body,
@@ -26,7 +27,7 @@ $T^2 = \frac{4 \pi^2 r^3}{GM}$
 
 which confirms Kepler’s Third Law.
 
-Kepler’s Third Law is crucial because it helps astronomers determine how long a planet takes to orbit the Sun. It is also used to calculate orbits of moons, asteroids, and exoplanets.
+**Kepler’s Third Law** is crucial because it helps astronomers determine how long a planet takes to orbit the Sun. It is also used to calculate orbits of moons, asteroids, and exoplanets.
 
 Also by rearranging the equation, we can determine the mass of stars and planets.
 
@@ -51,7 +52,9 @@ By using the modified form of Kepler’s Third Law : $T^2 = \frac{4 \pi^2 r^3}{G
 
 For example astronomers used the orbits of Jupiter’s moons (like Io and Europa) to determine Jupiter’s mass without ever visiting it.
 
-**Next** is if we know the period of a planet around a star, we can estimate its distance from the star using: $$r^3 = \frac{G M T^2}{4\pi^2}$$
+Next is if we know the period of a planet around a star, we can estimate its distance from the star using: 
+
+$$r^3 = \frac{G M T^2}{4\pi^2}$$
 
 This is useful for exoplanet discovery, where astronomers measure an exoplanet’s orbital period (via transit method) and then estimate its distance from the star.
 
@@ -66,7 +69,7 @@ For example NASA used Kepler’s Third Law to calculate the orbital paths of the
 ---
 
 ### 3. Real-World Examples
-Kepler’s Third Law is widely used to analyze real-world celestial motions. Here are some significant examples
+Kepler’s Third Law is widely used to analyze real-world celestial motions. Here are some examples :
 
 #### **3.1 Earth’s Orbit Around the Sun**
 - The Earth takes **one year (365.25 days)** to orbit the Sun.
@@ -75,6 +78,7 @@ Kepler’s Third Law is widely used to analyze real-world celestial motions. Her
 $$ T^2 = a^3 $$
 
 where $T = 1$ year and $a = 1$ AU.
+
 - This relationship allows astronomers to compare other planetary orbits using the same proportionality.
 
 #### **3.2 Moon’s Orbit Around Earth**
@@ -132,6 +136,7 @@ It also confirms Newton’s Gravity Law $v = √(GM/r)$
 **Here is the simulation of multiple planets moving in orbits**
 
 **It shows that :**
+
 - All planets moving at their correct speeds
 
 - Inner planets move faster than outer planets
