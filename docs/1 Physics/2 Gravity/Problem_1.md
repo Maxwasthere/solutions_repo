@@ -145,12 +145,33 @@ It also confirms Newton’s Gravity Law $v = √(GM/r)$
 
 ![alt text](<orbit (1).gif>)
 
+---
+
+Below is a graphical representation of **circular orbits** with different radii:
+
+![alt text](image-2.png)
+
+This plot visually demonstrates how planets with larger orbits take longer to complete one revolution.
 
 ---
 
 ### 5. Extension to Elliptical Orbits
-Kepler’s Third Law also applies to elliptical orbits, replacing $r$ with the **semi-major axis $a$**. The formula remains:
 
-$$T^2 = \frac{4 \pi^2 a^3}{GM}$$
+Kepler’s Third Law extends naturally to elliptical orbits by replacing the orbital radius r with the semi-major axis $a$:
 
-This generalization helps explain planetary orbits and spacecraft trajectories.
+$$T^2 \propto a^3$$
+
+Even for highly elliptical orbits (such as comets), the same principle holds.
+
+Now we compare **Comparing Circular** and **Elliptical Orbits**
+
+![alt text](image-3.png)
+
+This plot illustrates:
+
+- **Circular orbits** maintain a constant radius.
+- **Elliptical orbits** have varying distance from the star.
+
+Kepler’s Third Law applies to all gravitational orbits, including planets, moons, comets, exoplanets, and stars.
+
+By graphing different orbital shapes, we can better understand how orbital radius and period are connected in both circular and elliptical cases.
