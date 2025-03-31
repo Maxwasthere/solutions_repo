@@ -241,8 +241,10 @@ Here i will explain the core physical parameters and derivations used to calcula
 
 - Each planet's known mass (in kg) is used to calculate gravitational effects.
 - Example:
+
   - Earth: $5.972 \times 10^{24} \, \text{kg}$
   - Jupiter: $1.898 \times 10^{27} \, \text{kg}$
+
 - **Effect:** Greater mass increases gravitational pull, requiring higher velocities to orbit or escape.
 
 ---
@@ -251,8 +253,10 @@ Here i will explain the core physical parameters and derivations used to calcula
 
 - The average distance from the center of the planet to its surface.
 - Example:
+
   - Earth: $6.371 \times 10^6 \, \text{m}$
   - Mars: $3.3895 \times 10^6 \, \text{m}$
+
 - **Effect:** A larger radius weakens surface gravity and reduces the required velocities.
 
 ---
@@ -261,8 +265,10 @@ Here i will explain the core physical parameters and derivations used to calcula
 
 - The average distance from each planet to the Sun.
 - Example:
+
   - Earth: $1.496 \times 10^{11} \, \text{m}$ (1 AU)
   - Jupiter: $7.785 \times 10^{11} \, \text{m}$
+  
 - **Effect:** Greater distance reduces the Sun’s gravitational pull, making it easier to escape the solar system.
 
 ---
