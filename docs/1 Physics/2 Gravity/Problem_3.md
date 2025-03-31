@@ -179,8 +179,7 @@ The simulation shows the trajectory computed in the simulation:
 - The **curved path** shows the orbital trajectory of the payload.
 - Since the initial speed matches orbital velocity, the payload **does not fall back** or escape — it orbits stably.
 
-**This confirms the correctness of our setup and demonstrates how real mission data can be used to simulate and predict orbital motion accurately.
-dw**
+**This confirms the correctness of our setup and demonstrates how real mission data can be used to simulate and predict orbital motion accurately.**
 
 This numerical analysis demonstrates that:
 
