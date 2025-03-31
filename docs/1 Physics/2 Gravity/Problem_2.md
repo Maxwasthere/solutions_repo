@@ -17,6 +17,7 @@ v_1 = \sqrt{\frac{GM}{R}}
 $$  
 
 Where:  
+
 - $G = 6.67430 \times 10^{-11} \, \text{m}^3\text{kg}^{-1}\text{s}^{-2}$ (gravitational constant)  
 - $M$ : Mass of the celestial body (e.g., Earth, Mars)  
 - $R$ : Radius from the center of the body to the orbiting object  
@@ -25,6 +26,7 @@ Where:
 This velocity allows an object to stay in **low Earth orbit (LEO)** — it constantly "falls" toward Earth but never hits it because the planet curves away beneath it.
 
 **Example (Earth):**  
+
 - Mass of Earth $M \approx 5.972 \times 10^{24} \, \text{kg}$  
 - Radius of Earth $R \approx 6.371 \times 10^6 \, \text{m}$  
 
@@ -34,7 +36,8 @@ $$
 
 So, to stay in orbit around Earth, a spacecraft must travel at **~7.9 km/s** near the surface.
 
-**Applications:**  
+**Applications:**
+
 - Satellites in LEO (e.g., ISS)  
 - Earth observation missions  
 - Weather and spy satellites  
@@ -62,6 +65,7 @@ $$
 To escape Earth's gravity and head to space (e.g., to the Moon or Mars), a spacecraft must travel at least **11.2 km/s**.
 
 **Applications:**  
+
 - Missions to the Moon, Mars, or other planets  
 - Interplanetary spacecraft (e.g., Mars rovers)  
 - Space probes (e.g., Voyager, Pioneer)
@@ -79,6 +83,7 @@ v_3 = \sqrt{v_{e,\text{sun}}^2 + v_{\text{orb, Earth}}^2}
 $$
 
 Where:  
+
 - $v_{e,\text{sun}}$: Escape velocity from the Sun at Earth’s distance  
 - $v_{\text{orb, Earth}} \approx 29.8 \, \text{km/s}$: Earth’s orbital speed around the Sun
 
@@ -125,6 +130,7 @@ v_1 = \sqrt{\frac{GM}{R}}
 $$
 
 ### Parameters affecting $v_1$:
+
 - **Increases** with the planet's mass $M$  
 - **Decreases** with greater orbital radius $R$
 
@@ -152,6 +158,7 @@ v_2 = \sqrt{\frac{2GM}{R}} = \sqrt{2} \cdot v_1
 $$
 
 ### Parameters affecting $v_2$:
+
 - **Increases** with mass of planet $M$  
 - **Decreases** with larger radius $R$  
 - **Independent of the object's mass** (notice $m$ cancels out)
@@ -168,6 +175,7 @@ E_{\text{total}} = \frac{1}{2}mv^2 - \frac{GM_{\odot}m}{r}
 $$
 
 Where:  
+
 - $M_{\odot}$: Mass of the Sun  
 - $r$: Distance from Sun (approx. 1 AU)  
 - $v$: Total heliocentric speed required
@@ -187,6 +195,7 @@ $$
 This gives the **minimum relative speed** a spacecraft must achieve to leave the solar system, assuming launch from Earth.
 
 ### Parameters affecting $v_3$:
+
 - **Increases** if launched closer to the Sun (smaller $r$)  
 - **Decreases** with higher starting orbital velocity (e.g., a gravity assist from Jupiter)
 
@@ -221,6 +230,7 @@ Here i will explain the core physical parameters and derivations used to calcula
 ### Parameters Used
 
 ### 1. Gravitational Constant (G)
+
 - **Symbol:** $G$
 - **Value:** $6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}$
 - **Explanation:** A universal constant that governs the strength of gravitational attraction between two masses. It is constant across the universe.
@@ -228,6 +238,7 @@ Here i will explain the core physical parameters and derivations used to calcula
 ---
 
 ### 2. Mass of the Celestial Body (M)
+
 - Each planet's known mass (in kg) is used to calculate gravitational effects.
 - Example:
   - Earth: $5.972 \times 10^{24} \, \text{kg}$
@@ -237,6 +248,7 @@ Here i will explain the core physical parameters and derivations used to calcula
 ---
 
 ### 3. Radius of the Celestial Body (R)
+
 - The average distance from the center of the planet to its surface.
 - Example:
   - Earth: $6.371 \times 10^6 \, \text{m}$
@@ -246,6 +258,7 @@ Here i will explain the core physical parameters and derivations used to calcula
 ---
 
 ### 4. Orbital Radius from the Sun (r)
+
 - The average distance from each planet to the Sun.
 - Example:
   - Earth: $1.496 \times 10^{11} \, \text{m}$ (1 AU)
@@ -256,7 +269,7 @@ Here i will explain the core physical parameters and derivations used to calcula
 
 ## Derivations of the Velocities
 
-### 🔹 First Cosmic Velocity — $v_1$
+### First Cosmic Velocity — $v_1$
 
 **Formula:**
 $$
@@ -277,7 +290,7 @@ $$
 
 ---
 
-### 🔹 Second Cosmic Velocity — $v_2$
+### Second Cosmic Velocity — $v_2$
 
 **Formula:**
 $$
@@ -298,7 +311,7 @@ $$
 
 ---
 
-### 🔹 Third Cosmic Velocity — $v_3$
+### Third Cosmic Velocity — $v_3$
 
 **Formula:**
 $$
@@ -306,6 +319,7 @@ v_3 = \sqrt{v_{\text{esc,Sun}}^2 + v_{\text{orb,planet}}^2}
 $$
 
 Where:
+
 - $v_{\text{esc,Sun}} = \sqrt{\frac{2GM_{\odot}}{r}}$
 - $v_{\text{orb,planet}} = \sqrt{\frac{GM_{\odot}}{r}}$
 
@@ -363,12 +377,14 @@ The **first cosmic velocity** defines the **minimum speed** required for a space
 The **second cosmic velocity** is the **escape velocity** from a planet — the minimum speed needed to **break free of the planet’s gravitational pull**.
 
 ### Applications:
+
 - **Moon missions** (e.g., Apollo program)
 - **Mars missions** (e.g., Perseverance rover, Mars Express)
 - **Planetary flybys and orbiters** (e.g., Cassini at Saturn, Juno at Jupiter)
 - **Sample return missions** (e.g., OSIRIS-REx)
 
 ### Why It Matters:
+
 - Defines how much **thrust and fuel** is required to send a spacecraft toward another celestial body.
 - Determines **launch window** calculations and transfer orbit strategies (like Hohmann transfers).
 - Critical for designing **stages of launch vehicles** — especially for missions leaving Earth’s gravity well.
@@ -380,6 +396,7 @@ The **second cosmic velocity** is the **escape velocity** from a planet — the 
 The **third cosmic velocity** refers to the **speed required to leave the Solar System entirely**, escaping the gravitational influence of the Sun starting from a planetary orbit.
 
 ### Applications:
+
 - **Interstellar probes** (e.g., Voyager 1 & 2, which are now in interstellar space)
 - **Missions to the Oort Cloud or beyond**
 - **Theoretical star missions** (e.g., Breakthrough Starshot)
