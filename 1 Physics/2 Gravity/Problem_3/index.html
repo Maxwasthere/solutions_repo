@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 3 - Physics and Mathematics</title>
+<title>Problem 3. Analyzing Possible Trajectories of a Payload Released Near Earth - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 3";
+        var mkdocs_page_name = "Problem 3. Analyzing Possible Trajectories of a Payload Released Near Earth";
         var mkdocs_page_input_path = "1 Physics/2 Gravity/Problem_3.md";
         var mkdocs_page_url = null;
       </script>
@@ -58,8 +58,50 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2. Escape Velocities and Cosmic Velocities</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 3. Analyzing Possible Trajectories of a Payload Released Near Earth</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-elliptical-trajectory">1. Elliptical Trajectory</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-it-is">What It Is:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conditions">Conditions:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-parabolic-trajectory">2. Parabolic Trajectory</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-it-is_1">What It Is:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conditions_1">Conditions:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-hyperbolic-trajectory">3. Hyperbolic Trajectory</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-it-is_2">What It Is:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conditions_2">Conditions:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#examples_1">Examples:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-sub-orbital-ballistic-trajectory">4. Sub-Orbital (Ballistic) Trajectory</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-it-is_3">What It Is:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conditions_3">Conditions:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#examples_2">Examples:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#why-this-matters">Why This Matters</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +205,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">2 Gravity</li>
-<li class="breadcrumb-item active">Problem 3</li>
+<li class="breadcrumb-item active">Problem 3. Analyzing Possible Trajectories of a Payload Released Near Earth</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +213,265 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-3">Problem 3</h1>
+<h1 id="problem-3-analyzing-possible-trajectories-of-a-payload-released-near-earth">Problem 3. Analyzing Possible Trajectories of a Payload Released Near Earth</h1>
+<p>When a payload is released from a moving rocket near Earth, it enters a new trajectory that depends entirely on its <strong>initial conditions</strong> — specifically, its <strong>velocity</strong>, <strong>direction</strong>, and <strong>altitude</strong> at the moment of release. The nature of this trajectory is determined by the balance between the payload’s kinetic energy and Earth’s gravitational pull.</p>
+<p>The result will be one of several possible <strong>conic section trajectories</strong>: <strong>elliptical</strong>, <strong>parabolic</strong>, <strong>hyperbolic</strong>, or <strong>sub-orbital</strong>. These paths are not only mathematically distinct but also have <strong>critical implications for space operations</strong>, such as satellite deployment, reentry, or interplanetary missions.</p>
+<hr/>
+<h2 id="1-elliptical-trajectory">1. Elliptical Trajectory</h2>
+<h3 id="what-it-is">What It Is:</h3>
+<p>An <strong>elliptical orbit</strong> is a closed curved path where the payload remains <strong>bound to Earth</strong>. This is the most common type of orbit used by satellites, where the payload continues to circle the planet indefinitely (barring drag or propulsion changes).</p>
+<h3 id="conditions">Conditions:</h3>
+<ul>
+<li>The total mechanical energy <span class="arithmatex">\(E = K + U\)</span> is <strong>negative</strong>.</li>
+<li>The payload’s velocity at release is <strong>less than escape velocity</strong> but <strong>more than the minimum orbital speed</strong> at that altitude.</li>
+<li>Eccentricity <span class="arithmatex">\(0 &lt; e &lt; 1\)</span>, where <span class="arithmatex">\(e = 0\)</span> is a perfect circle.</li>
+</ul>
+<h3 id="examples">Examples:</h3>
+<ul>
+<li>Satellites in Low Earth Orbit (LEO), Medium Earth Orbit (MEO), or Geostationary Orbit (GEO).</li>
+<li>The International Space Station (ISS).</li>
+<li>The Moon, in its natural elliptical orbit around Earth.</li>
+</ul>
+<hr/>
+<h2 id="2-parabolic-trajectory">2. Parabolic Trajectory</h2>
+<h3 id="what-it-is_1">What It Is:</h3>
+<p>A <strong>parabolic trajectory</strong> is the boundary case between elliptical and hyperbolic motion. It represents the <strong>minimum velocity</strong> required for a payload to escape Earth’s gravitational pull, without having any excess speed.</p>
+<h3 id="conditions_1">Conditions:</h3>
+<ul>
+<li>The total mechanical energy <span class="arithmatex">\(E = 0\)</span>.</li>
+<li>The payload’s velocity is <strong>exactly equal to escape velocity</strong>:
+  $$
+  v_{\text{escape}} = \sqrt{\frac{2GM}{R}}
+  $$</li>
+<li>Eccentricity <span class="arithmatex">\(e = 1\)</span>.</li>
+</ul>
+<h3 id="example">Example:</h3>
+<ul>
+<li>A theoretical spacecraft released at exactly the escape speed from Earth, heading infinitely outward, slowing down but never stopping or returning.</li>
+</ul>
+<hr/>
+<h2 id="3-hyperbolic-trajectory">3. Hyperbolic Trajectory</h2>
+<h3 id="what-it-is_2">What It Is:</h3>
+<p>A <strong>hyperbolic trajectory</strong> occurs when the payload has <strong>more than enough energy</strong> to escape Earth’s gravity. The trajectory is an open curve, and the payload will <strong>never return</strong>.</p>
+<h3 id="conditions_2">Conditions:</h3>
+<ul>
+<li>Total mechanical energy <span class="arithmatex">\(E &gt; 0\)</span>.</li>
+<li>The velocity at release is <strong>greater than escape velocity</strong>.</li>
+<li>Eccentricity <span class="arithmatex">\(e &gt; 1\)</span>.</li>
+</ul>
+<h3 id="examples_1">Examples:</h3>
+<ul>
+<li>Interplanetary or interstellar probes (e.g., Voyager 1, New Horizons).</li>
+<li>Gravity assist maneuvers that increase speed for Solar System escape.</li>
+</ul>
+<hr/>
+<h2 id="4-sub-orbital-ballistic-trajectory">4. Sub-Orbital (Ballistic) Trajectory</h2>
+<h3 id="what-it-is_3">What It Is:</h3>
+<p>In a <strong>sub-orbital trajectory</strong>, the payload doesn’t have enough horizontal speed to enter a full orbit. Instead, it rises along a curved path and eventually <strong>falls back</strong> to Earth under gravity.</p>
+<h3 id="conditions_3">Conditions:</h3>
+<ul>
+<li>Total mechanical energy <span class="arithmatex">\(E &lt; 0\)</span>, but trajectory intersects Earth.</li>
+<li>Initial speed is <strong>less than orbital velocity</strong>.</li>
+<li>Path is part of an ellipse, but not a closed orbit.</li>
+</ul>
+<h3 id="examples_2">Examples:</h3>
+<ul>
+<li>Ballistic missiles and sounding rockets.</li>
+<li>Space tourism flights (e.g., Blue Origin’s New Shepard).</li>
+<li>Capsules launched to space and returned without full orbit.</li>
+</ul>
+<hr/>
+<h2 id="why-this-matters">Why This Matters</h2>
+<p>Understanding these trajectories is essential in mission planning:</p>
+<ul>
+<li><strong>Orbital missions</strong> need precise speed for stable elliptical paths.</li>
+<li><strong>Escape missions</strong> (e.g., heading to Mars) must exceed escape velocity.</li>
+<li><strong>Reentry missions</strong> use sub-orbital physics to safely return to Earth.</li>
+<li><strong>Gravity assists</strong> exploit hyperbolic paths to increase spacecraft speed.</li>
+</ul>
+<p>Every possible trajectory a payload can follow after release falls into one of these categories. These are not just abstract physics — they’re the <strong>fundamental flight paths</strong> used in satellite deployment, planetary exploration, and returning spacecraft to Earth. Mastery of these trajectories is foundational for anyone working in aerospace, astrodynamics, or space mission design.</p>
+<hr/>
+<h1 id="numerical-analysis-of-a-payloads-path-near-earth">Numerical Analysis of a Payload's Path Near Earth</h1>
+<h2 id="objective">Objective</h2>
+<p>The goal is to <strong>numerically compute</strong> and visualize the trajectory of a payload released from a moving spacecraft near Earth. The motion is influenced only by Earth's gravity, and we analyze how different <strong>initial velocities</strong> and <strong>positions</strong> affect the path of the payload.</p>
+<p>I base this simulation on <strong>real orbital parameters</strong> of the <strong>International Space Station (ISS)</strong> to keep our model grounded in reality.</p>
+<hr/>
+<h2 id="physical-background">Physical Background</h2>
+<p>The trajectory of a freely falling object under gravity can be predicted using <strong>Newton's Law of Universal Gravitation</strong>:</p>
+<div class="arithmatex">\[
+\vec{F} = -G \frac{M m}{r^2} \hat{r}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(G\)</span>: Gravitational constant (<span class="arithmatex">\(6.67430 \times 10^{-11} \, \text{m}^3 \, \text{kg}^{-1} \, \text{s}^{-2}\)</span>)</li>
+<li><span class="arithmatex">\(M\)</span>: Mass of Earth</li>
+<li><span class="arithmatex">\(m\)</span>: Mass of payload</li>
+<li><span class="arithmatex">\(r\)</span>: Distance from Earth's center</li>
+</ul>
+<p>From Newton’s Second Law:</p>
+<div class="arithmatex">\[
+\vec{a} = \frac{\vec{F}}{m} = -G \frac{M}{r^2} \hat{r}
+\]</div>
+<p>We numerically integrate the acceleration to compute velocity and position over time using the <strong>Euler method</strong>.</p>
+<hr/>
+<h2 id="real-data-iss-as-reference">Real Data: ISS as Reference</h2>
+<p>We use real International Space Station orbital parameters to simulate a realistic release scenario:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Altitude</td>
+<td>~408 km</td>
+</tr>
+<tr>
+<td>Orbital Speed</td>
+<td>~7.66 km/s</td>
+</tr>
+<tr>
+<td>Orbit Type</td>
+<td>Circular (LEO)</td>
+</tr>
+<tr>
+<td>Mass of Earth</td>
+<td><span class="arithmatex">\(5.972 \times 10^{24} \, \text{kg}\)</span></td>
+</tr>
+<tr>
+<td>Earth Radius</td>
+<td><span class="arithmatex">\(6.371 \times 10^6 \, \text{m}\)</span></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="initial-conditions">Initial Conditions</h2>
+<ul>
+<li><strong>Position</strong>: <span class="arithmatex">\(r = R_{\text{Earth}} + 408 \, \text{km}\)</span></li>
+<li><strong>Velocity</strong>: <span class="arithmatex">\(v = 7.66 \, \text{km/s}\)</span> (tangential to surface)</li>
+<li><strong>Duration</strong>: 6000 seconds</li>
+<li><strong>Time Step</strong>: 1 second</li>
+</ul>
+<p>These represent a scenario where the payload is released directly from the ISS.</p>
+<hr/>
+<h2 id="python-simulation">Python Simulation</h2>
+<p>I implemented a simple 2D numerical simulation using the <strong>Euler method</strong>. At each step, the gravitational acceleration is calculated based on the current distance from Earth's center, and position and velocity are updated accordingly.</p>
+<p>Key components:
+- Arrays to track position and velocity
+- Gravity-based acceleration calculated at each step
+- Integration over time to model motion</p>
+<p>The simulation produces a <strong>closed orbital path</strong>, confirming that a payload released at ISS speed and altitude remains in <strong>low Earth orbit</strong>.</p>
+<p><img alt="alt text" src="../payload_trajectory.gif"/></p>
+<p>The simulation shows the trajectory computed in the simulation:</p>
+<ul>
+<li>The <strong>blue circle</strong> represents Earth.</li>
+<li>The <strong>curved path</strong> shows the orbital trajectory of the payload.</li>
+<li>Since the initial speed matches orbital velocity, the payload <strong>does not fall back</strong> or escape — it orbits stably.</li>
+</ul>
+<p><strong>This confirms the correctness of our setup and demonstrates how real mission data can be used to simulate and predict orbital motion accurately.
+dw</strong></p>
+<p>This numerical analysis demonstrates that:</p>
+<ul>
+<li>A payload released from ISS at orbital velocity remains in orbit.</li>
+<li>Adjusting the velocity slightly would change the trajectory type (e.g., sub-orbital reentry or hyperbolic escape).</li>
+<li>Simulations like this are vital for predicting and designing <strong>orbital maneuvers, reentry trajectories</strong>, or <strong>planetary transfers</strong>.</li>
+</ul>
+<p>This analysis bridges <strong>theory and application</strong>, showing how core gravitational physics governs real spacecraft motion.</p>
+<hr/>
+<h1 id="relationship-between-trajectory-types-and-spaceflight-scenarios">Relationship Between Trajectory Types and Spaceflight Scenarios</h1>
+<p>When an object is released near a planet or other massive body, it follows a path determined entirely by its <strong>initial velocity</strong>, <strong>direction</strong>, and <strong>altitude</strong>. These factors influence the object's <strong>total mechanical energy</strong>, which in turn dictates the nature of its trajectory.</p>
+<p>This trajectory directly determines whether the object will:</p>
+<ul>
+<li><strong>Enter orbit</strong> and remain bound to the planet,</li>
+<li><strong>Reenter</strong> the atmosphere and fall back,</li>
+<li>Or <strong>escape</strong> the planet’s gravity altogether.</li>
+</ul>
+<hr/>
+<h2 id="orbital-insertion-stable-bound-motion">Orbital Insertion — Stable Bound Motion</h2>
+<p>If the object is released with a <strong>sufficient tangential speed</strong>, it will not fall back to the planet but instead will continuously "fall around" it. This is called <strong>orbital motion</strong>. The gravitational pull provides the centripetal force needed to keep it in a <strong>closed curved path</strong>.</p>
+<h3 id="characteristics">Characteristics:</h3>
+<ul>
+<li>The trajectory is an <strong>ellipse</strong> (or a <strong>circle</strong> if speed and altitude are just right).</li>
+<li>The object is <strong>gravitationally bound</strong> to the planet.</li>
+<li>Its total mechanical energy (kinetic + potential) is <strong>negative</strong>, indicating that it lacks enough energy to escape.</li>
+<li>This condition is called <strong>orbital insertion</strong>, where a moving object is successfully placed into a stable orbit.</li>
+</ul>
+<h3 id="conditions_4">Conditions:</h3>
+<ul>
+<li>The object's velocity is <strong>greater than the minimum required to stay aloft</strong>, but <strong>less than escape velocity</strong>.</li>
+<li>The gravitational force continuously pulls the object toward the planet, curving its path into an ellipse.</li>
+</ul>
+<hr/>
+<h2 id="reentry-incomplete-bound-motion">Reentry — Incomplete Bound Motion</h2>
+<p>If the object is released with a velocity that is <strong>too low to achieve orbit</strong>, gravity will overcome its forward motion and pull it back toward the planet. The object follows a <strong>partial elliptical trajectory</strong> that intersects with the surface.</p>
+<h3 id="characteristics_1">Characteristics:</h3>
+<ul>
+<li>The trajectory is part of an ellipse, but not a full orbit.</li>
+<li>The object’s path <strong>intersects the planet</strong>, leading to impact or reentry into the atmosphere.</li>
+<li>The total mechanical energy is still <strong>negative</strong>, as the object is not escaping gravity, but it cannot sustain orbit.</li>
+</ul>
+<h3 id="conditions_5">Conditions:</h3>
+<ul>
+<li>The velocity is <strong>less than the minimum orbital speed</strong> at that altitude.</li>
+<li>The object lacks enough horizontal motion to counteract gravity, so it eventually descends back.</li>
+</ul>
+<hr/>
+<h2 id="escape-unbound-motion">Escape — Unbound Motion</h2>
+<p>If the object is released with a <strong>very high velocity</strong>, it may completely overcome the gravitational pull of the planet. It follows an <strong>open trajectory</strong> — either a <strong>parabola</strong> or a <strong>hyperbola</strong> — depending on how much energy it has.</p>
+<h3 id="case-a-parabolic-trajectory">Case A: Parabolic Trajectory</h3>
+<ul>
+<li>The object’s total mechanical energy is exactly <strong>zero</strong>.</li>
+<li>This means it has just enough speed to escape, but no energy left over.</li>
+<li>The trajectory is a perfect parabola.</li>
+<li>The object slows down infinitely as it moves away, never returning.</li>
+</ul>
+<h3 id="case-b-hyperbolic-trajectory">Case B: Hyperbolic Trajectory</h3>
+<ul>
+<li>The object’s total energy is <strong>positive</strong>.</li>
+<li>This means it escapes and <strong>keeps some kinetic energy</strong>, continuing to move indefinitely.</li>
+<li>The trajectory is a hyperbola.</li>
+<li>The object is permanently unbound from the planet’s gravity.</li>
+</ul>
+<h3 id="conditions-for-escape">Conditions for Escape:</h3>
+<ul>
+<li>The velocity must be <strong>equal to or greater than escape velocity</strong>:
+  $$
+  v_{\text{escape}} = \sqrt{\frac{2GM}{r}}
+  $$
+  where:</li>
+<li><span class="arithmatex">\(G\)</span> is the gravitational constant,</li>
+<li><span class="arithmatex">\(M\)</span> is the mass of the planet,</li>
+<li><span class="arithmatex">\(r\)</span> is the distance from the planet’s center.</li>
+</ul>
+<hr/>
+<p>Each of these outcomes — orbit, fall, or escape — is governed by <strong>basic energy and motion principles</strong> in gravitational fields. By controlling the speed and angle at which an object is released, we determine the kind of journey it will take.</p>
+<hr/>
+<h2 id="trajectory-animations">Trajectory animations</h2>
+<h3 id="orbital-trajectory-elliptical">Orbital Trajectory (Elliptical)</h3>
+<p><img alt="alt text" src="../payload_trajectory-1.gif"/></p>
+<p><strong>Initial Velocity:</strong> ~7670 m/s</p>
+<p>In this case, the payload is given just enough tangential velocity at 400 km altitude to continuously fall around Earth without hitting it. The gravitational force provides the centripetal acceleration needed to maintain a closed curved path.</p>
+<p>The trajectory appears smooth and symmetric — either nearly circular or gently elliptical depending on precision. The object’s total mechanical energy is <strong>negative</strong>, meaning it is <strong>gravitationally bound</strong> to Earth. This is a classic example of orbital motion.</p>
+<hr/>
+<h3 id="sub-orbital-trajectory">Sub-Orbital Trajectory</h3>
+<p><img alt="alt text" src="../payload_trajectory-2.gif"/></p>
+<p><strong>Initial Velocity:</strong> ~6000 m/s</p>
+<p>Here, the object is released with <strong>insufficient velocity</strong> to remain in orbit. As a result, it rises briefly, follows a curved path (a segment of an ellipse), and then <strong>falls back to Earth</strong>.</p>
+<p>The gravitational pull is too strong to be countered by the object’s horizontal motion. This leads to a <strong>sub-orbital</strong> flight, where the object follows an elliptical arc that intersects with Earth's surface. This is typical for objects on reentry or ballistic flights.</p>
+<hr/>
+<h3 id="parabolic-trajectory">Parabolic Trajectory</h3>
+<p><img alt="alt text" src="../payload_trajectory-3.gif"/></p>
+<p><strong>Initial Velocity:</strong> ~11,180 m/s</p>
+<p>This is the <strong>exact escape velocity</strong> at the given altitude. The object has just enough energy to <strong>overcome Earth’s gravity</strong> but not a bit more. As a result, the trajectory forms a <strong>parabola</strong> — the object continually slows down as it moves away but never returns.</p>
+<p>In energy terms, its total mechanical energy is <strong>zero</strong>, marking the precise threshold between bound and unbound motion.</p>
+<hr/>
+<h3 id="hyperbolic-trajectory">Hyperbolic Trajectory</h3>
+<p><img alt="alt text" src="../payload_trajectory-4.gif"/></p>
+<p><strong>Initial Velocity:</strong> ~12,000 m/s</p>
+<p>The payload is released with a velocity greater than escape velocity. It not only escapes Earth’s gravity but also retains some <strong>excess kinetic energy</strong>, allowing it to move away <strong>indefinitely</strong> at a nonzero speed.</p>
+<p>The resulting trajectory is <strong>hyperbolic</strong> — an open curve. This represents <strong>unbound motion</strong>, where the object is no longer affected by the planet in any meaningful way beyond the initial encounter.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
