@@ -1,4 +1,4 @@
-# Escape Velocities and Cosmic Velocities
+# Problem 2. Escape Velocities and Cosmic Velocities
 
 ## First, Second, and Third Cosmic Velocities
 
@@ -268,7 +268,7 @@ Here i will explain the core physical parameters and derivations used to calcula
 
   - Earth: $1.496 \times 10^{11} \, \text{m}$ (1 AU)
   - Jupiter: $7.785 \times 10^{11} \, \text{m}$
-  
+
 - **Effect:** Greater distance reduces the Sun’s gravitational pull, making it easier to escape the solar system.
 
 ---
