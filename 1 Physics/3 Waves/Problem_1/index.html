@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Wave Interference Simulation: Regular Polygon Configuration - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Wave Interference Simulation: Regular Polygon Configuration";
         var mkdocs_page_input_path = "1 Physics/3 Waves/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -64,8 +64,42 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">3 Waves</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Wave Interference Simulation: Regular Polygon Configuration</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#problem-setup">Problem Setup</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#assumptions">Assumptions:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#select-a-regular-polygon">Select a Regular Polygon</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#position-the-sources">Position the Sources</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#wave-equations">Wave Equations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#superposition-of-waves">Superposition of Waves</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#next-step">Next Step</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#analyze-interference-patterns">Analyze Interference Patterns</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#6-visualization">6. Visualization</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#interference-pattern-analysis">Interference Pattern Analysis</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#case-1-square-configuration-4-sources">Case 1: Square Configuration (4 Sources)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#case-2-circular-configuration-100-sources">Case 2: Circular Configuration (100 Sources)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#comparing-the-two">Comparing the Two:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#conclusion">Conclusion:</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +197,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">3 Waves</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Wave Interference Simulation: Regular Polygon Configuration</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +205,209 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="wave-interference-simulation-regular-polygon-configuration">Wave Interference Simulation: Regular Polygon Configuration</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Wave interference is a fundamental concept in physics where multiple waves interact in space and time. When waves from different sources overlap, the total displacement at any point is given by the <strong>principle of superposition</strong>—they simply add together. This leads to regions of:</p>
+<ul>
+<li><strong>Constructive interference</strong> (amplitudes reinforce)</li>
+<li><strong>Destructive interference</strong> (amplitudes cancel)</li>
+</ul>
+<hr/>
+<h2 id="problem-setup">Problem Setup</h2>
+<p>We choose a <strong>square configuration</strong> for simplicity and symmetry. Each corner of the square acts as a point source, all emitting coherent waves.</p>
+<h3 id="assumptions">Assumptions:</h3>
+<ul>
+<li>All sources emit waves with the same parameters: amplitude <span class="arithmatex">\(A\)</span>, wavelength <span class="arithmatex">\(\lambda\)</span>, frequency <span class="arithmatex">\(f\)</span>, and phase <span class="arithmatex">\(\phi = 0\)</span></li>
+<li>Medium is uniform and infinite in extent</li>
+<li>No reflection or damping</li>
+<li>Time is fixed to analyze a snapshot of the wave field (we can animate later)</li>
+</ul>
+<hr/>
+<h3 id="select-a-regular-polygon">Select a Regular Polygon</h3>
+<p>We begin by choosing a <strong>square</strong> as our polygon. This choice offers several advantages:</p>
+<ul>
+<li>It is symmetric, which makes patterns easier to interpret.</li>
+<li>It has enough complexity (4 sources) to produce rich interference, but is not overly complicated.</li>
+<li>It allows a balanced spatial distribution of wave sources.</li>
+</ul>
+<p>The vertices of the square will be equally spaced around the origin for symmetry and ease of calculation.</p>
+<hr/>
+<h3 id="position-the-sources">Position the Sources</h3>
+<p>We position four wave sources at the corners of a square centered at the origin. Assuming a side length of 2 units, the coordinates of the sources are:</p>
+<ul>
+<li><span class="arithmatex">\((x_1, y_1) = (-1, -1)\)</span></li>
+<li><span class="arithmatex">\((x_2, y_2) = (-1, 1)\)</span></li>
+<li><span class="arithmatex">\((x_3, y_3) = (1, -1)\)</span></li>
+<li><span class="arithmatex">\((x_4, y_4) = (1, 1)\)</span></li>
+</ul>
+<p>This configuration ensures all wave sources are equidistant from the center, promoting symmetric interference.</p>
+<p>Each of these sources will emit a circular wave described by the same functional form, differing only in spatial origin.</p>
+<hr/>
+<h3 id="wave-equations">Wave Equations</h3>
+<p>For a single source located at <span class="arithmatex">\((x_i, y_i)\)</span>, the wave it generates at point <span class="arithmatex">\((x, y)\)</span> and time <span class="arithmatex">\(t\)</span> is:</p>
+<div class="arithmatex">\[
+\eta_i(x, y, t) = \frac{A}{\sqrt{r_i}} \cdot \cos(k r_i - \omega t + \phi)
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(r_i = \sqrt{(x - x_i)^2 + (y - y_i)^2}\)</span></li>
+<li><span class="arithmatex">\(A = 1\)</span>, <span class="arithmatex">\(\lambda = 1 \Rightarrow k = 2\pi\)</span></li>
+<li><span class="arithmatex">\(f = 1 \Rightarrow \omega = 2\pi\)</span></li>
+<li><span class="arithmatex">\(\phi = 0\)</span> (all waves are in phase)</li>
+</ul>
+<p>Thus, each of the four wave sources will have a unique <span class="arithmatex">\(r_i\)</span>, but all other parameters are identical.</p>
+<hr/>
+<h3 id="superposition-of-waves">Superposition of Waves</h3>
+<p>By the <strong>principle of superposition</strong>, the total displacement <span class="arithmatex">\(\eta_{\text{sum}}(x, y, t)\)</span> at each point is the sum of the displacements from all sources:</p>
+<div class="arithmatex">\[
+\eta_{\text{sum}}(x, y, t) = \sum_{i=1}^{4} \eta_i(x, y, t)
+\]</div>
+<p>This formula accounts for both <strong>constructive</strong> and <strong>destructive interference</strong>, depending on the phases of the individual waves at any point.</p>
+<p>In Python, this is implemented by calculating each <span class="arithmatex">\(\eta_i\)</span> on a grid and summing them element-wise.</p>
+<hr/>
+<h3 id="next-step">Next Step</h3>
+<p>With the wave equations and source positions defined, we're now ready to <strong>simulate and analyze</strong> the resulting interference pattern. In the next sections, we'll:</p>
+<ul>
+<li>Compute the summed wave field over a 2D grid</li>
+<li>Visualize the results using heatmaps</li>
+<li>Interpret the physics behind the observed pattern</li>
+</ul>
+<hr/>
+<h3 id="analyze-interference-patterns">Analyze Interference Patterns</h3>
+<p>After computing the total wave displacement <span class="arithmatex">\(\eta_{\text{sum}}(x, y, t)\)</span>, we analyze how the superposition of the individual waves creates regions of constructive and destructive interference.</p>
+<h4 id="constructive-interference">Constructive Interference:</h4>
+<p>Occurs when wave crests (or troughs) from multiple sources meet. Mathematically, this happens when the arguments of the cosine functions are in phase:</p>
+<ul>
+<li><span class="arithmatex">\(\cos(k r_1 - \omega t) \approx \cos(k r_2 - \omega t)\)</span></li>
+<li>Result: amplitudes <strong>add up</strong>, producing large values in <span class="arithmatex">\(\eta_{\text{sum}}\)</span></li>
+</ul>
+<h4 id="destructive-interference">Destructive Interference:</h4>
+<p>Occurs when a crest from one wave meets a trough from another, causing cancellation. This corresponds to:</p>
+<ul>
+<li>Cosines being <strong>out of phase</strong> (e.g. one is positive, the other is negative)</li>
+<li>Result: <span class="arithmatex">\(\eta_{\text{sum}}\)</span> approaches <strong>zero</strong></li>
+</ul>
+<h4 id="observations">Observations:</h4>
+<ul>
+<li><strong>Symmetric patterns</strong> centered around the polygon.</li>
+<li><strong>Interference fringes</strong> — bands of alternating high and low displacement.</li>
+<li>Regions where wave energy is focused vs. cancelled.</li>
+</ul>
+<p>We'll generate a 2D heatmap to visualize these features in the next step.</p>
+<hr/>
+<h3 id="6-visualization">6. Visualization</h3>
+<p>To visualize the interference, we create a 2D plot of the water surface at a fixed time <span class="arithmatex">\(t = 0\)</span>.</p>
+<p><img alt="alt text" src="../image.png"/></p>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<hr/>
+<h2 id="interference-pattern-analysis">Interference Pattern Analysis</h2>
+<p>After simulating wave superposition from different source configurations, we can now interpret the results for both:</p>
+<ul>
+<li>A <strong>square configuration</strong> (4 sources)</li>
+<li>A <strong>circular configuration</strong> (100 sources forming a regular 100-gon)</li>
+</ul>
+<hr/>
+<h3 id="case-1-square-configuration-4-sources">Case 1: Square Configuration (4 Sources)</h3>
+<h4 id="description">Description:</h4>
+<ul>
+<li>Four coherent point sources are placed at the corners of a square.</li>
+<li>Each emits a circular wave of the same amplitude, frequency, and phase.</li>
+<li>The interference pattern is generated by summing their contributions at each point on the grid.</li>
+</ul>
+<h4 id="pattern-characteristics">Pattern Characteristics:</h4>
+<ul>
+<li><strong>Symmetric Interference</strong>: Due to the square's rotational and reflectional symmetry, the resulting pattern is also symmetric about both axes and diagonals.</li>
+<li><strong>Grid-like Fringes</strong>: Constructive and destructive interference form a grid or checkerboard-like pattern, particularly near the center.</li>
+<li><strong>Bright Nodes (Maxima)</strong>: Where wavefronts meet in phase, the amplitudes reinforce.</li>
+<li><strong>Dark Nodes (Minima)</strong>: Where crest and trough cancel out, destructive interference occurs.</li>
+</ul>
+<h4 id="physical-insight">Physical Insight:</h4>
+<ul>
+<li>The square geometry causes wavefronts to overlap in consistent, repeatable ways.</li>
+<li>These overlaps create a <strong>stationary interference pattern</strong>, highlighting wave superposition principles clearly.</li>
+<li>This is similar to <strong>multi-slit interference</strong>, but in 2D space with radial waves.</li>
+</ul>
+<hr/>
+<h3 id="case-2-circular-configuration-100-sources">Case 2: Circular Configuration (100 Sources)</h3>
+<h4 id="description_1">Description:</h4>
+<ul>
+<li>100 wave sources are placed evenly around a circle, forming a regular 100-gon.</li>
+<li>As the number of vertices increases, the shape approximates a continuous ring.</li>
+</ul>
+<h4 id="pattern-characteristics_1">Pattern Characteristics:</h4>
+<ul>
+<li><strong>Radial Symmetry</strong>: The circular arrangement produces a pattern that is symmetric about the origin in all directions.</li>
+<li><strong>Concentric Rings</strong>: Bright and dark circular fringes appear, similar to ripples or Airy disks in optics.</li>
+<li><strong>High Density of Interference Nodes</strong>: Due to the large number of overlapping wavefronts, there are many fine structures—regions of intense constructive and destructive interference.</li>
+</ul>
+<h4 id="physical-insight_1">Physical Insight:</h4>
+<ul>
+<li>
+<p>This setup mimics a <strong>circular wavefront array</strong>, similar to what you’d see in:</p>
+</li>
+<li>
+<p>Holography</p>
+</li>
+<li>Optical diffraction through a circular aperture</li>
+<li>
+<p>Ripple tank experiments with ring-shaped disturbances</p>
+</li>
+<li>
+<p>The pattern complexity increases with the number of sources: more sources = more intricate interference zones.</p>
+</li>
+<li>At the center, the constructive interference is often dominant, forming a bright central spot or <strong>focus</strong> point.</li>
+</ul>
+<hr/>
+<h3 id="comparing-the-two">Comparing the Two:</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Square (4 sources)</th>
+<th>Circle (100 sources)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geometry</td>
+<td>Discrete square vertices</td>
+<td>Near-continuous circular ring</td>
+</tr>
+<tr>
+<td>Symmetry</td>
+<td>4-fold (rotational + mirror)</td>
+<td>Full radial symmetry</td>
+</tr>
+<tr>
+<td>Pattern Shape</td>
+<td>Grid-like</td>
+<td>Concentric ripples / rings</td>
+</tr>
+<tr>
+<td>Interference Complexity</td>
+<td>Moderate (easily traceable)</td>
+<td>High (dense structure)</td>
+</tr>
+<tr>
+<td>Visual Analogy</td>
+<td>2D double-slit</td>
+<td>Circular aperture diffraction</td>
+</tr>
+<tr>
+<td>Educational Use</td>
+<td>Great for basic understanding</td>
+<td>Shows advanced interference behavior</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="conclusion">Conclusion:</h3>
+<ul>
+<li>The <strong>square configuration</strong> is ideal for understanding basic principles of wave superposition and symmetry.</li>
+<li>The <strong>100-source circular configuration</strong> demonstrates how rich and detailed interference patterns can become as the number of sources increases.</li>
+<li>Both cases visually reveal how geometry affects the way waves overlap and interact — a core idea in both classical and modern physics (e.g., optics, acoustics, quantum mechanics).</li>
+</ul>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
