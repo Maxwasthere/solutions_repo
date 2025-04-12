@@ -179,9 +179,9 @@ After simulating wave superposition from different source configurations, we can
 
 - This setup mimics a **circular wavefront array**, similar to what you’d see in:
 
-  - Holography
-  - Optical diffraction through a circular aperture
-  - Ripple tank experiments with ring-shaped disturbances
+    - Holography
+    - Optical diffraction through a circular aperture
+    - Ripple tank experiments with ring-shaped disturbances
 
 - The pattern complexity increases with the number of sources: more sources = more intricate interference zones.
 - At the center, the constructive interference is often dominant, forming a bright central spot or **focus** point.
