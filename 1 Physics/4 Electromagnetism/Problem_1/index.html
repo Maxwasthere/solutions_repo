@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Simulating the Effects of the Lorentz Force - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Simulating the Effects of the Lorentz Force";
         var mkdocs_page_input_path = "1 Physics/4 Electromagnetism/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -70,8 +70,58 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">4 Electromagnetism</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Simulating the Effects of the Lorentz Force</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#exploration-of-applications">Exploration of Applications</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#key-systems-influenced-by-the-lorentz-force">Key Systems Influenced by the Lorentz Force</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#relevance-of-mathbfe-and-mathbfb-fields">Relevance of \(\mathbf{E}\) and \(\mathbf{B}\) Fields</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulating-particle-motion">Simulating Particle Motion</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#field-configurations-to-simulate">Field Configurations to Simulate</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#trajectory-types">Trajectory Types</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-results-and-explanation">Simulation Results and Explanation</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#uniform-magnetic-field-only-circular-motion">Uniform Magnetic Field Only (Circular Motion)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#combined-electric-and-magnetic-fields-helical-motion">Combined Electric and Magnetic Fields (Helical Motion)</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#crossed-electric-and-magnetic-fields-mathbfe-times-mathbfb-drift">Crossed Electric and Magnetic Fields (\(\mathbf{E} \times \mathbf{B}\) Drift)</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-parameter-exploration">3. Parameter Exploration</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#parameters-to-explore">Parameters to Explore</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#theoretical-relationships">Theoretical Relationships</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#examples-of-variations">Examples of Variations</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#experimental-approach">Experimental Approach</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#highlighting-physical-phenomena">Highlighting Physical Phenomena</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#larmor-radius">Larmor Radius</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#drift-velocity">Drift Velocity</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#how-to-highlight-in-simulation">How to Highlight in Simulation</a>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +213,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">4 Electromagnetism</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Simulating the Effects of the Lorentz Force</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +221,251 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="simulating-the-effects-of-the-lorentz-force">Simulating the Effects of the Lorentz Force</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The motion of charged particles under the influence of electric and magnetic fields is a cornerstone of classical electromagnetism and has deep relevance in modern physics and engineering. At the heart of this motion lies the <strong>Lorentz force</strong>, expressed as:</p>
+<div class="arithmatex">\[
+\mathbf{F} = q\mathbf{E} + q\mathbf{v} \times \mathbf{B}
+\]</div>
+<p>This vector equation describes how a charged particle (with charge <span class="arithmatex">\(q\)</span>) experiences a force due to an electric field <span class="arithmatex">\(\mathbf{E}\)</span> and a magnetic field <span class="arithmatex">\(\mathbf{B}\)</span>, depending also on its velocity <span class="arithmatex">\(\mathbf{v}\)</span>. The interplay of these fields can lead to complex, often non-intuitive, trajectories, especially when both fields are present and oriented differently.</p>
+<p>Understanding the behavior of particles subjected to the Lorentz force is crucial in a variety of real-world applications. For example, it is the foundational principle behind the operation of:</p>
+<ul>
+<li><strong>Particle accelerators</strong>, where beams of charged particles are steered and focused by electromagnetic fields</li>
+<li><strong>Mass spectrometers</strong>, where particles follow curved paths based on their charge-to-mass ratio</li>
+<li><strong>Cyclotrons and synchrotrons</strong>, which rely on controlled circular or spiral motion</li>
+<li><strong>Plasma confinement systems</strong> in nuclear fusion devices, where particles must be held in place by complex magnetic configurations</li>
+<li><strong>Astrophysical plasmas</strong>, where charged particles move under cosmic-scale magnetic fields</li>
+</ul>
+<p>Due to the complexity of solving the Lorentz force analytically in most real scenarios, simulations are essential. They allow us to visualize how varying initial conditions and field strengths affect the particle's trajectory. From simple circular motion in a uniform magnetic field to helical paths in crossed fields, simulations offer insight that bridges mathematical formalism and physical intuition.</p>
+<p>In this assignment, we will explore the effects of the Lorentz force by implementing computational simulations of particle motion in different electromagnetic field configurations. We will begin with simple uniform fields and gradually incorporate more complexity, while analyzing how parameters such as velocity, charge, mass, and field strength influence the motion. Ultimately, we aim to draw meaningful connections between our simulated results and real-world systems.</p>
+<h2 id="exploration-of-applications">Exploration of Applications</h2>
+<p>The Lorentz force plays a critical role in numerous physical systems and technologies. Below, we examine some of the key domains where its effects are central to the function of devices or the understanding of natural phenomena.</p>
+<h3 id="key-systems-influenced-by-the-lorentz-force">Key Systems Influenced by the Lorentz Force</h3>
+<ul>
+<li>
+<p><strong>Particle Accelerators</strong>:<br/>
+  In synchrotrons and cyclotrons, charged particles are accelerated to high speeds using electric fields, while magnetic fields guide them along circular or spiral paths. The Lorentz force ensures that particles are kept on track while gaining energy, making it possible to reach extremely high velocities.</p>
+</li>
+<li>
+<p><strong>Mass Spectrometers</strong>:<br/>
+  These instruments use magnetic fields to bend the paths of ions according to their mass-to-charge ratio. The radius of curvature, determined by the balance of Lorentz and centripetal forces, allows scientists to identify the mass of unknown compounds with high precision.</p>
+</li>
+<li>
+<p><strong>Plasma Confinement (e.g., Tokamaks)</strong>:<br/>
+  In fusion reactors, the Lorentz force is essential for confining plasma — a state of matter made of free electrons and ions. Strong magnetic fields are used to force particles into helical paths, preventing them from colliding with the walls of the containment vessel.</p>
+</li>
+<li>
+<p><strong>Astrophysical Plasmas</strong>:<br/>
+  The motion of charged particles in the solar wind, planetary magnetospheres, and accretion disks is governed by the Lorentz force. These environments often contain large-scale magnetic fields that channel and accelerate particles across vast distances.</p>
+</li>
+</ul>
+<h3 id="relevance-of-mathbfe-and-mathbfb-fields">Relevance of <span class="arithmatex">\(\mathbf{E}\)</span> and <span class="arithmatex">\(\mathbf{B}\)</span> Fields</h3>
+<ul>
+<li>
+<p>The <strong>electric field</strong> <span class="arithmatex">\(\mathbf{E}\)</span> contributes a linear force in the direction of the field, accelerating particles uniformly. It is responsible for changing the <strong>speed</strong> (kinetic energy) of the particle.</p>
+</li>
+<li>
+<p>The <strong>magnetic field</strong> <span class="arithmatex">\(\mathbf{B}\)</span>, in contrast, exerts a force perpendicular to both the field and the particle’s velocity. It changes the <strong>direction</strong> of motion without affecting the speed, often resulting in circular or helical trajectories.</p>
+</li>
+<li>
+<p>When <strong>both fields</strong> are present, the particle can experience complex motion, such as drift (when electric and magnetic fields are perpendicular), or acceleration and curvature simultaneously, depending on their relative orientations.</p>
+</li>
+</ul>
+<hr/>
+<h2 id="simulating-particle-motion">Simulating Particle Motion</h2>
+<p>In this section, we aim to simulate the motion of a charged particle under the influence of the Lorentz force in various electromagnetic field configurations. The goal is to visualize and analyze the particle’s trajectory in each case, revealing how different fields and initial conditions influence its motion.</p>
+<p>The Lorentz force acting on a particle of charge <span class="arithmatex">\(q\)</span> and velocity <span class="arithmatex">\(\mathbf{v}\)</span> in electric and magnetic fields <span class="arithmatex">\(\mathbf{E}\)</span> and <span class="arithmatex">\(\mathbf{B}\)</span> is given by:</p>
+<div class="arithmatex">\[
+\mathbf{F} = q\mathbf{E} + q\mathbf{v} \times \mathbf{B}
+\]</div>
+<p>According to Newton’s second law, this force results in an acceleration:</p>
+<div class="arithmatex">\[
+\mathbf{a} = \frac{\mathbf{F}}{m} = \frac{q}{m} \left( \mathbf{E} + \mathbf{v} \times \mathbf{B} \right)
+\]</div>
+<p>To simulate the particle's motion, we must numerically integrate the equations of motion using appropriate time steps. Given the dependence of acceleration on velocity, this is typically done using methods such as <strong>Euler’s method</strong> or the more accurate <strong>Runge-Kutta methods</strong>.</p>
+<h3 id="field-configurations-to-simulate">Field Configurations to Simulate</h3>
+<p>We will simulate and visualize particle trajectories under the following scenarios:</p>
+<ul>
+<li>
+<p><strong>Uniform Magnetic Field Only</strong><br/>
+  The particle is subject to a constant magnetic field (e.g., <span class="arithmatex">\(\mathbf{B} = B \hat{z}\)</span>), with no electric field. The resulting motion is circular or helical depending on the initial velocity components.</p>
+</li>
+<li>
+<p><strong>Combined Uniform Electric and Magnetic Fields</strong><br/>
+  When both <span class="arithmatex">\(\mathbf{E}\)</span> and <span class="arithmatex">\(\mathbf{B}\)</span> are uniform and parallel or perpendicular, the particle may experience helical motion with drift. This configuration allows exploration of <strong><span class="arithmatex">\(\mathbf{E} \times \mathbf{B}\)</span> drift</strong> and energy changes due to <span class="arithmatex">\(\mathbf{E}\)</span>.</p>
+</li>
+<li>
+<p><strong>Crossed Electric and Magnetic Fields</strong><br/>
+  When <span class="arithmatex">\(\mathbf{E}\)</span> and <span class="arithmatex">\(\mathbf{B}\)</span> are perpendicular (e.g., <span class="arithmatex">\(\mathbf{E} = E \hat{x}\)</span>, <span class="arithmatex">\(\mathbf{B} = B \hat{z}\)</span>), the particle exhibits a <strong>drift motion</strong> perpendicular to both fields. This is known as <strong><span class="arithmatex">\(\mathbf{E} \times \mathbf{B}\)</span> drift</strong> and results in uniform translational motion while rotating.</p>
+</li>
+</ul>
+<h3 id="trajectory-types">Trajectory Types</h3>
+<p>Depending on the initial velocity and field configuration, the particle’s trajectory may fall into one of several categories:</p>
+<ul>
+<li><strong>Circular motion</strong>: If <span class="arithmatex">\(\mathbf{v}\)</span> is perpendicular to <span class="arithmatex">\(\mathbf{B}\)</span> and <span class="arithmatex">\(\mathbf{E} = 0\)</span>, the particle follows a circular path.</li>
+<li><strong>Helical motion</strong>: If <span class="arithmatex">\(\mathbf{v}\)</span> has both parallel and perpendicular components relative to <span class="arithmatex">\(\mathbf{B}\)</span>, the result is a helix.</li>
+<li><strong>Linear acceleration</strong>: If only <span class="arithmatex">\(\mathbf{E}\)</span> is present, the particle accelerates in the direction of the field.</li>
+<li><strong>Drift motion</strong>: With perpendicular <span class="arithmatex">\(\mathbf{E}\)</span> and <span class="arithmatex">\(\mathbf{B}\)</span> fields, the particle experiences lateral drift while rotating.</li>
+</ul>
+<h2 id="simulation-results-and-explanation">Simulation Results and Explanation</h2>
+<h3 id="uniform-magnetic-field-only-circular-motion">Uniform Magnetic Field Only (Circular Motion)</h3>
+<p>In this scenario, the particle is subjected to a constant magnetic field <span class="arithmatex">\(\mathbf{B} = B \hat{z}\)</span>, with no electric field (<span class="arithmatex">\(\mathbf{E} = 0\)</span>). The initial velocity <span class="arithmatex">\(\mathbf{v}_0\)</span> is perpendicular to the magnetic field, lying in the <span class="arithmatex">\(xy\)</span>-plane.</p>
+<p>According to the Lorentz force law, the force is always perpendicular to the particle's velocity:</p>
+<div class="arithmatex">\[
+\mathbf{F} = q\mathbf{v} \times \mathbf{B}
+\]</div>
+<p>This results in <strong>uniform circular motion</strong> in the <span class="arithmatex">\(xy\)</span>-plane. Since there is no component of velocity along <span class="arithmatex">\(z\)</span> and no electric field to introduce acceleration in that direction, the particle remains in a perfect circle with constant speed.</p>
+<p>Key characteristics:</p>
+<ul>
+<li>Trajectory is flat (confined to the <span class="arithmatex">\(xy\)</span>-plane).</li>
+<li>Radius of the circle is determined by the balance between magnetic force and centripetal force:<br/>
+<span class="arithmatex">\(r = \frac{mv}{|qB|}\)</span></li>
+<li>Speed remains constant, direction continuously changes.</li>
+</ul>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<hr/>
+<h3 id="combined-electric-and-magnetic-fields-helical-motion">Combined Electric and Magnetic Fields (Helical Motion)</h3>
+<p>Here, the electric and magnetic fields are both aligned along the <span class="arithmatex">\(z\)</span>-axis: <span class="arithmatex">\(\mathbf{E} = E \hat{z}\)</span> and <span class="arithmatex">\(\mathbf{B} = B \hat{z}\)</span>. The initial velocity <span class="arithmatex">\(\mathbf{v}_0\)</span> lies in the <span class="arithmatex">\(xy\)</span>-plane.</p>
+<p>In this case, the motion is a combination of two effects:</p>
+<ol>
+<li>The magnetic field causes circular motion in the <span class="arithmatex">\(xy\)</span>-plane, as in the previous case.</li>
+<li>The electric field causes constant acceleration along the <span class="arithmatex">\(z\)</span>-axis.</li>
+</ol>
+<p>The result is a <strong>helical trajectory</strong> that spirals around the <span class="arithmatex">\(z\)</span>-axis while the particle steadily accelerates in the <span class="arithmatex">\(z\)</span> direction.</p>
+<p>Key characteristics:</p>
+<ul>
+<li>Spiral radius remains approximately constant (due to constant <span class="arithmatex">\(v_\perp\)</span>).</li>
+<li>The pitch of the helix increases over time because of linear acceleration along <span class="arithmatex">\(z\)</span>.</li>
+<li>This is a classic example of simultaneous orthogonal motion.</li>
+</ul>
+<p><img alt="alt text" src="../image-5.png"/></p>
+<p><img alt="alt text" src="../image-2.png"/></p>
+<hr/>
+<h3 id="crossed-electric-and-magnetic-fields-mathbfe-times-mathbfb-drift">Crossed Electric and Magnetic Fields (<span class="arithmatex">\(\mathbf{E} \times \mathbf{B}\)</span> Drift)</h3>
+<p>In this configuration, the fields are perpendicular:<br/>
+<span class="arithmatex">\(\mathbf{E} = E \hat{x}\)</span> and <span class="arithmatex">\(\mathbf{B} = B \hat{z}\)</span>.</p>
+<p>Initially, the particle is at rest: <span class="arithmatex">\(\mathbf{v}_0 = 0\)</span>.</p>
+<p>This setup gives rise to a phenomenon known as <strong><span class="arithmatex">\(\mathbf{E} \times \mathbf{B}\)</span> drift</strong>. Although the particle begins at rest, it quickly starts moving due to the Lorentz force. The magnetic field curves the motion, while the electric field provides a steady push.</p>
+<p>The result is a <strong>drift</strong> in the direction of <span class="arithmatex">\(\mathbf{E} \times \mathbf{B}\)</span> (in this case, the <span class="arithmatex">\(y\)</span>-axis) combined with a rapid circular motion. The path traces out a kind of rolling or spiraling trajectory with a net translation.</p>
+<p>Drift velocity is given by:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\text{drift}} = \frac{\mathbf{E} \times \mathbf{B}}{B^2}
+\]</div>
+<p>Key characteristics:</p>
+<ul>
+<li>Overall motion appears as looping in the <span class="arithmatex">\(xy\)</span>-plane while drifting in <span class="arithmatex">\(y\)</span>.</li>
+<li>Speed and drift are both constant.</li>
+<li>No acceleration in <span class="arithmatex">\(z\)</span> since <span class="arithmatex">\(E_z = B_z = 0\)</span>.</li>
+</ul>
+<p><img alt="alt text" src="../image-6.png"/></p>
+<p><img alt="alt text" src="../image-3.png"/></p>
+<hr/>
+<h2 id="3-parameter-exploration">3. Parameter Exploration</h2>
+<p>In this section, we investigate how varying different physical parameters influences the trajectory of a charged particle subjected to the Lorentz force. By modifying values such as field strengths, initial velocity, and particle properties, we can observe transitions in motion type, changes in trajectory size, and variations in dynamics.</p>
+<h3 id="parameters-to-explore">Parameters to Explore</h3>
+<ul>
+<li>
+<p><strong>Field strengths</strong> (<span class="arithmatex">\(\mathbf{E}\)</span>, <span class="arithmatex">\(\mathbf{B}\)</span>):<br/>
+  Varying the electric and magnetic field magnitudes affects both acceleration and curvature of the trajectory.</p>
+</li>
+<li>
+<p><strong>Initial velocity vector</strong> (<span class="arithmatex">\(\mathbf{v}_0\)</span>):<br/>
+  Changing the direction and magnitude of the particle’s initial velocity alters the resulting motion from circular to helical, or linear to spiral.</p>
+</li>
+<li>
+<p><strong>Particle properties</strong> (charge <span class="arithmatex">\(q\)</span>, mass <span class="arithmatex">\(m\)</span>):<br/>
+  The charge-to-mass ratio directly influences how strongly the particle responds to electromagnetic fields. For example, increasing <span class="arithmatex">\(q\)</span> or decreasing <span class="arithmatex">\(m\)</span> leads to tighter circular motion.</p>
+</li>
+</ul>
+<hr/>
+<h3 id="theoretical-relationships">Theoretical Relationships</h3>
+<ul>
+<li><strong>Larmor Radius (Cyclotron Radius)</strong>:</li>
+</ul>
+<p>$$
+  r_L = \frac{m v_\perp}{|q| B}
+  $$</p>
+<p>This radius increases with velocity and decreases with stronger magnetic fields or larger charge.</p>
+<ul>
+<li><strong>Cyclotron Frequency</strong>:</li>
+</ul>
+<p>$$
+  \omega_c = \frac{|q| B}{m}
+  $$</p>
+<p>A measure of how fast the particle rotates in a magnetic field. It is independent of the velocity magnitude and depends only on <span class="arithmatex">\(q\)</span>, <span class="arithmatex">\(m\)</span>, and <span class="arithmatex">\(B\)</span>.</p>
+<ul>
+<li><strong>Drift Velocity</strong> (in crossed fields):</li>
+</ul>
+<p>$$
+  \mathbf{v}_{\text{drift}} = \frac{\mathbf{E} \times \mathbf{B}}{B^2}
+  $$</p>
+<p>The particle drifts uniformly in a direction perpendicular to both the electric and magnetic fields.</p>
+<hr/>
+<h3 id="examples-of-variations">Examples of Variations</h3>
+<ol>
+<li>
+<p><strong>Stronger Magnetic Field</strong>:<br/>
+   Increasing <span class="arithmatex">\(B\)</span> results in a smaller Larmor radius (tighter spiral) and higher cyclotron frequency (faster rotation).</p>
+</li>
+<li>
+<p><strong>Adding <span class="arithmatex">\(v_z\)</span> Component</strong>:<br/>
+   Introducing a velocity component along the magnetic field causes circular motion to become helical.</p>
+</li>
+<li>
+<p><strong>Changing the Sign of <span class="arithmatex">\(q\)</span></strong>:<br/>
+   A negative charge causes the trajectory to curve in the opposite direction (left-hand vs. right-hand rule).</p>
+</li>
+<li>
+<p><strong>Increasing Electric Field Strength</strong>:<br/>
+   Amplifies linear acceleration in the <span class="arithmatex">\(\mathbf{E}\)</span> direction or increases drift speed when <span class="arithmatex">\(\mathbf{E} \perp \mathbf{B}\)</span>.</p>
+</li>
+</ol>
+<hr/>
+<h3 id="experimental-approach">Experimental Approach</h3>
+<p>To explore these effects in code:</p>
+<ul>
+<li>Create sliders or parameter sweeps (e.g., loop over different values of <span class="arithmatex">\(B\)</span>, <span class="arithmatex">\(q\)</span>, or <span class="arithmatex">\(v_0\)</span>).</li>
+<li>Plot each trajectory to compare behavior visually.</li>
+<li>Measure Larmor radius from simulations and compare with theory.</li>
+</ul>
+<p>This type of exploration deepens the understanding of electromagnetic interactions and their sensitivity to initial and physical conditions.</p>
+<h2 id="highlighting-physical-phenomena">Highlighting Physical Phenomena</h2>
+<p>When simulating the motion of a charged particle under electric and magnetic fields, it's essential not only to display the path but also to identify and highlight key physical quantities that emerge from the motion. Two such quantities are the <strong>Larmor radius</strong> and the <strong>drift velocity</strong>.</p>
+<h3 id="larmor-radius">Larmor Radius</h3>
+<p>The <strong>Larmor radius</strong> (or cyclotron radius) is the radius of the circular motion a charged particle undergoes when moving perpendicular to a uniform magnetic field. It is given by the expression:</p>
+<div class="arithmatex">\[
+r_L = \frac{m v_\perp}{|q| B}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\(v_\perp\)</span> is the component of velocity perpendicular to <span class="arithmatex">\(\mathbf{B}\)</span>
+- <span class="arithmatex">\(q\)</span> is the particle's charge
+- <span class="arithmatex">\(m\)</span> is the particle's mass
+- <span class="arithmatex">\(B\)</span> is the magnitude of the magnetic field</p>
+<p>In simulations where only a magnetic field is applied, the Larmor radius can be directly measured from the circular trajectory. The numerical result should match the theoretical value when parameters are correctly set.</p>
+<p>To highlight this in code:
+- Overlay a circle of radius <span class="arithmatex">\(r_L\)</span> centered on the circular path.
+- Mark the particle’s initial position and velocity vector.</p>
+<h3 id="drift-velocity">Drift Velocity</h3>
+<p>In the presence of <strong>crossed electric and magnetic fields</strong> (e.g., <span class="arithmatex">\(\mathbf{E} \perp \mathbf{B}\)</span>), the particle experiences a net <strong>drift</strong> perpendicular to both fields. This is known as the <strong><span class="arithmatex">\(\mathbf{E} \times \mathbf{B}\)</span> drift</strong>, and the velocity of this drift is given by:</p>
+<div class="arithmatex">\[
+\mathbf{v}_{\text{drift}} = \frac{\mathbf{E} \times \mathbf{B}}{B^2}
+\]</div>
+<p>Key points:
+- This drift is <strong>independent</strong> of the particle’s charge and mass.
+- The particle’s actual motion is a combination of fast circular/spiral motion and a steady drift along a straight line.
+- In simulations, this can be visualized by:
+  - Drawing an arrow representing <span class="arithmatex">\(\mathbf{v}_{\text{drift}}\)</span>
+  - Comparing the particle’s center-of-motion path with the predicted drift direction</p>
+<h3 id="how-to-highlight-in-simulation">How to Highlight in Simulation</h3>
+<ul>
+<li>Annotate the plot with the <strong>computed Larmor radius</strong> and show it geometrically.</li>
+<li>Draw a <strong>dashed line</strong> along the expected <strong>drift direction</strong>.</li>
+<li>Optionally, show <strong>displacement over time</strong> to verify the constant drift velocity.</li>
+</ul>
+<p>These physical features help connect the visual simulation to deeper theoretical understanding and serve as checkpoints for validating numerical results.</p>
+<p><img alt="alt text" src="../image-4.png"/></p>
+<p><img alt="alt text" src="../image-6.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
