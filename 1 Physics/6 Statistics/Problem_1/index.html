@@ -84,6 +84,14 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#statement-of-the-theorem">Statement of the Theorem:</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#what-makes-the-clt-so-important">What Makes the CLT So Important:</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples-of-application">Examples of Application:</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conditions-for-the-clt-to-apply">Conditions for the CLT to Apply:</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -171,7 +179,295 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h2 id="introduction-to-the-central-limit-theorem-clt">Introduction to the Central Limit Theorem (CLT)</h2>
+<p>The Central Limit Theorem (CLT) is one of the most important results in statistics and probability theory. It provides a powerful and surprising insight: even if the population we are sampling from is not normally distributed, the distribution of the sample means will <strong>tend toward a normal distribution</strong> as the sample size increases.</p>
+<p>This idea is the foundation for many statistical procedures, including confidence intervals, hypothesis testing, and control charts in quality control.</p>
+<h3 id="statement-of-the-theorem">Statement of the Theorem:</h3>
+<p>Let <span class="arithmatex">\(X_1, X_2, \dots, X_n\)</span> be a random sample of size <span class="arithmatex">\(n\)</span> drawn from any population with:</p>
+<ul>
+<li>Mean: <span class="arithmatex">\(\mu\)</span> </li>
+<li>Variance: <span class="arithmatex">\(\sigma^2\)</span> </li>
+</ul>
+<p>Then, as the sample size <span class="arithmatex">\(n\)</span> increases, the distribution of the sample mean <span class="arithmatex">\(\bar{X}_n\)</span>:</p>
+<ul>
+<li>
+<p>Approaches a <strong>normal distribution</strong> </p>
+</li>
+<li>
+<p>Has a <strong>mean</strong> equal to the population mean:<br/>
+<span class="arithmatex">\(\mu_{\bar{X}} = \mu\)</span> </p>
+</li>
+<li>
+<p>Has a <strong>standard deviation</strong> (called the standard error of the mean):<br/>
+<span class="arithmatex">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\)</span> </p>
+</li>
+</ul>
+<p>This approximation improves as <span class="arithmatex">\(n\)</span> increases, and becomes quite accurate even for moderate sample sizes (e.g., <span class="arithmatex">\(n \geq 30\)</span>), especially when the population is not extremely skewed.</p>
+<h3 id="what-makes-the-clt-so-important">What Makes the CLT So Important:</h3>
+<ul>
+<li>
+<p>It allows us to <strong>make inferences</strong> about population parameters (like the mean) even if the population’s distribution is unknown or not normal.</p>
+</li>
+<li>
+<p>It forms the theoretical justification for using the <strong>normal distribution</strong> in real-world problems, including polling, manufacturing, medical studies, and finance.</p>
+</li>
+<li>
+<p>It helps ensure that sampling-based statistical procedures are valid under broad conditions.</p>
+</li>
+</ul>
+<h3 id="examples-of-application">Examples of Application:</h3>
+<ul>
+<li>
+<p>If you take repeated samples of 30 students’ test scores from a very skewed population (e.g., most scores are low), the <strong>distribution of the sample means</strong> will still form a <strong>bell-shaped curve</strong>.</p>
+</li>
+<li>
+<p>In manufacturing, if machine errors are measured over multiple runs, their <strong>average error values</strong> across runs will tend toward a normal distribution, making process control possible.</p>
+</li>
+</ul>
+<h3 id="conditions-for-the-clt-to-apply">Conditions for the CLT to Apply:</h3>
+<ul>
+<li>
+<p>The population should have a <strong>finite mean</strong> and <strong>finite variance</strong>.  </p>
+</li>
+<li>
+<p>The <strong>sample size</strong> should be reasonably large. While there is no fixed rule, a common guideline is:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(n \geq 30\)</span> for arbitrary distributions.  </p>
+</li>
+<li>
+<p>Smaller <span class="arithmatex">\(n\)</span> may be sufficient if the population is already symmetric or approximately normal.</p>
+</li>
+<li>
+<p>The samples should be <strong>independent and identically distributed (i.i.d.)</strong>.</p>
+</li>
+</ul>
+<p>The CLT gives us a powerful bridge between any population distribution and the normal distribution. It explains why the <strong>normal distribution appears so frequently</strong> in statistics and nature, even when the underlying data is far from normal. Understanding and observing the CLT is essential for interpreting sampling results and using statistical tools correctly.</p>
+<hr/>
+<h2 id="simulating-sampling-distributions">Simulating Sampling Distributions</h2>
+<p>To explore the Central Limit Theorem (CLT) in practice, we simulate sampling from several types of population distributions. By observing how the distribution of sample means evolves, we can directly witness how the CLT causes the sampling distribution to approach normality.</p>
+<h3 id="1-choosing-population-distributions">1. Choosing Population Distributions:</h3>
+<p>To test the generality of the CLT, we choose <strong>diverse distributions</strong> with different shapes:</p>
+<ul>
+<li>
+<p><strong>Uniform distribution</strong>:<br/>
+  A flat, symmetric distribution with equal probability across a range.<br/>
+  Example: <span class="arithmatex">\(\text{Uniform}(0, 1)\)</span></p>
+</li>
+<li>
+<p><strong>Exponential distribution</strong>:<br/>
+  A skewed, right-tailed distribution often used to model waiting times.<br/>
+  Example: <span class="arithmatex">\(\text{Exponential}(\lambda = 1)\)</span></p>
+</li>
+<li>
+<p><strong>Binomial distribution</strong>:<br/>
+  A discrete distribution modeling the number of successes in a fixed number of trials.<br/>
+  Example: <span class="arithmatex">\(\text{Binomial}(n=10, p=0.5)\)</span></p>
+</li>
+</ul>
+<p>Each of these distributions has a <strong>non-normal shape</strong>, which makes them ideal for demonstrating how the CLT works even when the original data isn't normally distributed.</p>
+<h2 id="sampling-and-visualization">Sampling and Visualization</h2>
+<p>In this part of the assignment, I tested how the sampling distribution of the sample mean changes with increasing sample size, using three different population distributions: uniform, exponential, and binomial.</p>
+<h3 id="sampling-procedure">Sampling Procedure:</h3>
+<ul>
+<li>For each population distribution, I selected the following sample sizes:  </li>
+<li><span class="arithmatex">\(n = 5\)</span> </li>
+<li><span class="arithmatex">\(n = 30\)</span> </li>
+<li>
+<p><span class="arithmatex">\(n = 100\)</span></p>
+</li>
+<li>
+<p>For each sample size, I:  </p>
+</li>
+<li>Drew 1000 independent random samples with replacement from the population.  </li>
+<li>Calculated the <strong>sample mean</strong> of each sample.  </li>
+<li>
+<p>Collected these means to form a <strong>sampling distribution</strong>.</p>
+</li>
+<li>
+<p>I then visualized each set of sample means using histograms with KDE overlays to observe the overall shape.</p>
+</li>
+</ul>
+<h3 id="what-i-observed">What I Observed:</h3>
+<ul>
+<li><strong>Uniform Distribution</strong>:  </li>
+<li>Even at <span class="arithmatex">\(n = 5\)</span>, the sampling distribution was fairly symmetric.  </li>
+<li>At <span class="arithmatex">\(n = 30\)</span> and <span class="arithmatex">\(n = 100\)</span>, it became very smooth and bell-shaped.  </li>
+<li>The mean was centered around <span class="arithmatex">\(0.5\)</span>, as expected from a Uniform(0, 1) distribution.</li>
+</ul>
+<p><img alt="alt text" src="../image.png"/>
+<img alt="alt text" src="../image-1.png"/>
+<img alt="alt text" src="../image-2.png"/></p>
+<ul>
+<li><strong>Exponential Distribution</strong>:  </li>
+<li>With <span class="arithmatex">\(n = 5\)</span>, the sampling distribution was still skewed to the right, like the original data.  </li>
+<li>At <span class="arithmatex">\(n = 30\)</span>, the skew started to reduce, and the shape became more balanced.  </li>
+<li>By <span class="arithmatex">\(n = 100\)</span>, the sampling distribution looked close to normal.  </li>
+<li>This showed that even skewed distributions normalize with large enough <span class="arithmatex">\(n\)</span>.</li>
+</ul>
+<p><img alt="alt text" src="../image-3.png"/>
+<img alt="alt text" src="../image-4.png"/>
+<img alt="alt text" src="../image-5.png"/></p>
+<ul>
+<li><strong>Binomial Distribution</strong>:  </li>
+<li>The binomial population was already somewhat symmetric.  </li>
+<li>At <span class="arithmatex">\(n = 5\)</span>, the distribution of sample means showed visible discreteness, but a peak near 5.  </li>
+<li>For <span class="arithmatex">\(n = 30\)</span> and <span class="arithmatex">\(n = 100\)</span>, the shape became nearly perfectly normal.  </li>
+<li>The average sample mean remained close to the theoretical value of <span class="arithmatex">\(np = 5\)</span>.</li>
+</ul>
+<p><img alt="alt text" src="../image-6.png"/>
+<img alt="alt text" src="../image-7.png"/>
+<img alt="alt text" src="../image-8.png"/></p>
+<h3 id="conclusion">Conclusion:</h3>
+<ul>
+<li>
+<p>In all three cases, increasing the sample size made the sampling distributions smoother, more symmetric, and more bell-shaped.</p>
+</li>
+<li>
+<p>The variance of the sample means decreased as <span class="arithmatex">\(n\)</span> increased, matching the formula:<br/>
+<span class="arithmatex">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\)</span></p>
+</li>
+<li>
+<p>The results clearly illustrated the Central Limit Theorem in action: regardless of how the original data is shaped, the <strong>distribution of the sample mean approaches normality</strong> as the sample size grows.</p>
+</li>
+</ul>
+<h2 id="parameter-exploration">Parameter Exploration</h2>
+<p>In this part of the project, I explored how both the <strong>shape of the original distribution</strong> and the <strong>sample size</strong> affect the convergence of the sampling distribution toward normality. I also looked at how the <strong>variance</strong> of the population impacts the spread of the sample means.</p>
+<h3 id="effect-of-the-original-distribution-shape">Effect of the Original Distribution Shape:</h3>
+<ul>
+<li>
+<p>The rate at which the sampling distribution of the mean approaches a normal shape is closely related to the <strong>skewness and symmetry</strong> of the original population.</p>
+</li>
+<li>
+<p>For the <strong>uniform distribution</strong>, which is already symmetric, the convergence was fast. Even with a small sample size like <span class="arithmatex">\(n = 5\)</span>, the sampling distribution looked relatively balanced.</p>
+</li>
+<li>
+<p>For the <strong>exponential distribution</strong>, which is heavily skewed, the convergence was much slower. At <span class="arithmatex">\(n = 5\)</span>, the sample means still showed noticeable skewness. Only at <span class="arithmatex">\(n = 100\)</span> did the distribution become reasonably symmetric.</p>
+</li>
+<li>
+<p>The <strong>binomial distribution</strong>, being discrete but fairly symmetric with <span class="arithmatex">\(p = 0.5\)</span>, showed smooth convergence and produced near-normal sampling distributions by <span class="arithmatex">\(n = 30\)</span>.</p>
+</li>
+</ul>
+<p>This shows that the CLT holds in all cases, but <strong>skewed and discrete distributions take longer to converge</strong> to normality.</p>
+<h3 id="effect-of-sample-size">Effect of Sample Size:</h3>
+<ul>
+<li>
+<p>As the sample size increased from <span class="arithmatex">\(n = 5\)</span> to <span class="arithmatex">\(n = 100\)</span>, all sampling distributions became:  </p>
+</li>
+<li>
+<p>More <strong>centered</strong> around the true population mean  </p>
+</li>
+<li>More <strong>symmetrical</strong> </li>
+<li>
+<p><strong>Less variable</strong>, with tighter clustering around the mean</p>
+</li>
+<li>
+<p>The standard deviation of the sampling distribution decreased with increasing <span class="arithmatex">\(n\)</span>, consistent with:<br/>
+<span class="arithmatex">\(\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}\)</span></p>
+</li>
+<li>
+<p>Larger <span class="arithmatex">\(n\)</span> values <strong>smooth out irregularities</strong> caused by skewness or discreteness in the population.</p>
+</li>
+</ul>
+<h3 id="effect-of-population-variance">Effect of Population Variance:</h3>
+<ul>
+<li>
+<p>The <strong>spread of the sample means</strong> (i.e., how wide the histogram was) depended not only on <span class="arithmatex">\(n\)</span> but also on the variance of the original distribution.</p>
+</li>
+<li>
+<p>The exponential distribution, which has a higher variance than the uniform or binomial cases, produced sampling distributions that were visibly <strong>wider</strong> for the same sample size.</p>
+</li>
+<li>
+<p>As expected, the formula for standard error explains this behavior:</p>
+</li>
+<li>
+<p>A larger population variance <span class="arithmatex">\(\sigma^2\)</span> results in a <strong>larger standard error</strong> unless compensated for by a large <span class="arithmatex">\(n\)</span>.</p>
+</li>
+</ul>
+<h3 id="summary">Summary:</h3>
+<ul>
+<li>
+<p>Populations with <strong>low skew and low variance</strong> converge more quickly to a normal distribution when sampling.</p>
+</li>
+<li>
+<p>Skewed or high-variance populations require <strong>larger sample sizes</strong> to achieve a similar level of normality in their sampling distributions.</p>
+</li>
+<li>
+<p>This exploration highlighted how the Central Limit Theorem is robust, but the <strong>rate of convergence depends on both sample size and population characteristics</strong>.</p>
+</li>
+</ul>
+<h2 id="practical-applications">Practical Applications</h2>
+<p>Throughout this project, I observed how the Central Limit Theorem (CLT) plays out in simulated data. While the theory is powerful, its true importance lies in the fact that it enables many real-world applications. From business and manufacturing to medicine and finance, the CLT underpins the way we make reliable conclusions based on sample data.</p>
+<p>The value of the CLT comes from a simple but powerful idea: no matter what the population looks like, the <strong>distribution of sample means will tend to be normal</strong>, provided the sample size is large enough. This makes it possible to apply techniques based on the normal distribution in a wide range of situations, even when the data itself is far from normal.</p>
+<h3 id="estimating-population-parameters">Estimating Population Parameters:</h3>
+<ul>
+<li>
+<p>In real-world data collection, it's rarely feasible to observe an entire population. Instead, we rely on <strong>samples</strong> and use the sample mean to estimate the <strong>true population mean</strong>.</p>
+</li>
+<li>
+<p>The CLT ensures that the <strong>distribution of the sample mean is normal</strong>, allowing us to calculate probabilities, margins of error, and confidence intervals even if the population distribution is skewed or unknown.</p>
+</li>
+<li>
+<p>For example, in <strong>public health</strong>, researchers use a sample of patients to estimate the average effect of a treatment. Thanks to the CLT, they can quantify how confident they are that their results reflect the population.</p>
+</li>
+<li>
+<p>Similarly, <strong>pollsters</strong> rely on the CLT when they report public opinion from small sample groups. Without the CLT, estimating national support for a policy or candidate would be unreliable.</p>
+</li>
+</ul>
+<h3 id="quality-control-in-manufacturing">Quality Control in Manufacturing:</h3>
+<ul>
+<li>
+<p>In manufacturing and industrial settings, continuous testing of every item is impractical. Instead, companies use <strong>sampling techniques</strong> to monitor product quality.</p>
+</li>
+<li>
+<p>By taking regular samples from the production line and measuring metrics like weight, size, or defect count, engineers track the <strong>mean performance</strong> of batches.</p>
+</li>
+<li>
+<p>Thanks to the CLT, the <strong>distribution of these sample means is approximately normal</strong>, making it possible to set <strong>control limits</strong> and detect when a process is drifting out of specification.</p>
+</li>
+<li>
+<p>Tools like <strong>control charts</strong> and <strong>Six Sigma</strong> heavily rely on the CLT to ensure that decisions about quality are statistically sound.</p>
+</li>
+</ul>
+<h3 id="predicting-outcomes-in-financial-models">Predicting Outcomes in Financial Models:</h3>
+<ul>
+<li>
+<p>Financial markets are complex and often volatile, with returns that are not normally distributed in the short term.</p>
+</li>
+<li>
+<p>However, many financial tools and risk models (such as <strong>portfolio optimization</strong>, <strong>option pricing</strong>, or <strong>Value at Risk (VaR)</strong>) are based on assumptions that <strong>aggregated or averaged outcomes follow a normal distribution</strong>.</p>
+</li>
+<li>
+<p>The CLT provides the justification for this: when analyzing average returns over time or across assets, the sampling distribution of those averages tends to become normal.</p>
+</li>
+<li>
+<p>This is crucial for <strong>risk assessment</strong>, where institutions must estimate potential losses and allocate capital accordingly — often under time pressure and uncertainty.</p>
+</li>
+</ul>
+<h3 id="scientific-research-and-experimentation">Scientific Research and Experimentation:</h3>
+<ul>
+<li>
+<p>In experimental sciences, it's common to repeat measurements under slightly different conditions or with different subjects.</p>
+</li>
+<li>
+<p>The <strong>sample mean</strong> of repeated trials becomes the key quantity of interest, and the CLT allows researchers to treat that mean as a normally distributed variable.</p>
+</li>
+<li>
+<p>This is essential for <strong>hypothesis testing</strong>, where the assumption of normality underlies calculations for p-values and test statistics.</p>
+</li>
+<li>
+<p>Without the CLT, the use of standard statistical tests (like t-tests and ANOVA) would not be valid for many real-world datasets.</p>
+</li>
+</ul>
+<h3 id="summary_1">Summary:</h3>
+<p>The Central Limit Theorem is more than just a mathematical curiosity — it’s a <strong>core pillar of applied statistics</strong>. It enables us to:</p>
+<ul>
+<li>Draw conclusions about populations using small samples  </li>
+<li>Quantify uncertainty with confidence intervals  </li>
+<li>Apply normal-distribution tools to non-normal data  </li>
+<li>Make data-driven decisions in fields like health, economics, manufacturing, and engineering</li>
+</ul>
+<p>This project made it clear how and why the CLT works, but more importantly, it showed how <strong>statistical theory supports real decisions</strong> in the world around us.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
