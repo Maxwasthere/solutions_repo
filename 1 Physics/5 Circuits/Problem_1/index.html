@@ -355,13 +355,13 @@ return simplified
 </li>
 <li>
 <p>For each internal node <span class="arithmatex">\(v\)</span>:</p>
-</li>
-<li>
-<p>It checks if the degree of <span class="arithmatex">\(v\)</span> is 2 (i.e., connected to exactly two neighbors).</p>
-</li>
+<ul>
+<li>It checks if the degree of <span class="arithmatex">\(v\)</span> is 2 (i.e., connected to exactly two neighbors).</li>
 <li>It confirms that there's only <strong>one edge</strong> to each neighbor — a requirement for a <strong>pure series</strong> connection.</li>
 <li>It calculates the <strong>equivalent resistance</strong> as <span class="arithmatex">\(R_{eq} = R_1 + R_2\)</span>.</li>
 <li>It removes the intermediate node and the two old resistors, and replaces them with a new resistor between the neighbors.</li>
+</ul>
+</li>
 </ul>
 <h4 id="2-parallel-detection-logic">2. <strong>Parallel Detection Logic</strong></h4>
 <ul>
