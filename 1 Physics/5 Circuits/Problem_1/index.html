@@ -356,7 +356,9 @@ return simplified
 <li>
 <p>For each internal node <span class="arithmatex">\(v\)</span>:</p>
 </li>
-<li>It checks if the degree of <span class="arithmatex">\(v\)</span> is 2 (i.e., connected to exactly two neighbors).</li>
+<li>
+<p>It checks if the degree of <span class="arithmatex">\(v\)</span> is 2 (i.e., connected to exactly two neighbors).</p>
+</li>
 <li>It confirms that there's only <strong>one edge</strong> to each neighbor — a requirement for a <strong>pure series</strong> connection.</li>
 <li>It calculates the <strong>equivalent resistance</strong> as <span class="arithmatex">\(R_{eq} = R_1 + R_2\)</span>.</li>
 <li>It removes the intermediate node and the two old resistors, and replaces them with a new resistor between the neighbors.</li>
@@ -418,33 +420,33 @@ else:
 </code></pre>
 <h3 id="explanation-of-the-algorithm">Explanation of the Algorithm:</h3>
 <ol>
-<li><strong>Loop Structure</strong>:<br/>
-   The algorithm enters a loop where it repeatedly applies two simplification functions:</li>
-<li><code>simplify_series()</code>: Detects and merges series-connected resistors.</li>
-<li>
-<p><code>simplify_parallel()</code>: Detects and merges parallel-connected resistors.</p>
-</li>
-<li>
-<p><strong>Termination Condition</strong>:<br/>
-   The loop exits when <strong>no changes</strong> are made during a complete pass — meaning the graph cannot be simplified further.</p>
-</li>
-<li>
-<p><strong>Final Result</strong>:<br/>
-   After exiting the loop, the algorithm checks whether a <strong>single edge</strong> remains between the terminal nodes:</p>
-</li>
+<li><strong>Loop Structure</strong>:  </li>
+</ol>
+<p>The algorithm enters a loop where it repeatedly applies two simplification functions:
+   - <code>simplify_series()</code>: Detects and merges series-connected resistors.
+   - <code>simplify_parallel()</code>: Detects and merges parallel-connected resistors.</p>
+<ol>
+<li><strong>Termination Condition</strong>:  </li>
+</ol>
+<p>The loop exits when <strong>no changes</strong> are made during a complete pass — meaning the graph cannot be simplified further.</p>
+<ol>
+<li><strong>Final Result</strong>:  </li>
+</ol>
+<p>After exiting the loop, the algorithm checks whether a <strong>single edge</strong> remains between the terminal nodes:</p>
+<ul>
 <li>If yes: the edge's resistance is returned as the <strong>equivalent resistance</strong>.</li>
 <li>
 <p>If not: the circuit is either <strong>not fully connected</strong> or contains configurations not handled by the algorithm.</p>
 </li>
 <li>
-<p><strong>Recursive Simplicity through Iteration</strong>:<br/>
-   Even <strong>nested combinations</strong> (such as a parallel group containing series resistors) are simplified without additional logic — because inner structures are eventually exposed as the graph becomes simpler with each pass.</p>
+<p><strong>Recursive Simplicity through Iteration</strong>:  </p>
 </li>
-<li>
-<p><strong>Modular Design</strong>:<br/>
-   The algorithm is modular: simplification logic is abstracted into separate functions (<code>simplify_series</code> and <code>simplify_parallel</code>) and the core loop just controls <strong>when to stop</strong>.</p>
-</li>
+</ul>
+<p>Even <strong>nested combinations</strong> (such as a parallel group containing series resistors) are simplified without additional logic — because inner structures are eventually exposed as the graph becomes simpler with each pass.</p>
+<ol>
+<li><strong>Modular Design</strong>:  </li>
 </ol>
+<p>The algorithm is modular: simplification logic is abstracted into separate functions (<code>simplify_series</code> and <code>simplify_parallel</code>) and the core loop just controls <strong>when to stop</strong>.</p>
 <p>This design ensures correctness, scalability, and clarity for complex circuits.</p>
 <h2 id="handling-nested-combinations">Handling Nested Combinations</h2>
 <p>Nested combinations occur when series and parallel resistor configurations are layered within each other — for example:</p>
