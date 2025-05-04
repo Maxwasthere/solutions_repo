@@ -12,6 +12,7 @@ Graph theory offers a structured and algorithmic alternative to this problem:
 
     - **Edges** represent resistors with **weights** corresponding to their resistance values.
 
+
 - This abstraction enables the use of well-established graph algorithms to:
 
     - Identify series and parallel connections.
@@ -129,7 +130,9 @@ return simplified
 
 - It **skips terminal nodes** (start and end) to avoid breaking the main circuit path.
 
+
 - For each internal node $v$:
+
   - It checks if the degree of $v$ is 2 (i.e., connected to exactly two neighbors).
   - It confirms that there's only **one edge** to each neighbor — a requirement for a **pure series** connection.
   - It calculates the **equivalent resistance** as $R_{eq} = R_1 + R_2$.
@@ -188,22 +191,29 @@ else:
 ### Explanation of the Algorithm:
 
 1. **Loop Structure**:  
+
    The algorithm enters a loop where it repeatedly applies two simplification functions:
    - `simplify_series()`: Detects and merges series-connected resistors.
    - `simplify_parallel()`: Detects and merges parallel-connected resistors.
 
+
 2. **Termination Condition**:  
+
    The loop exits when **no changes** are made during a complete pass — meaning the graph cannot be simplified further.
 
 3. **Final Result**:  
+
    After exiting the loop, the algorithm checks whether a **single edge** remains between the terminal nodes:
+   
    - If yes: the edge's resistance is returned as the **equivalent resistance**.
    - If not: the circuit is either **not fully connected** or contains configurations not handled by the algorithm.
 
 4. **Recursive Simplicity through Iteration**:  
+
    Even **nested combinations** (such as a parallel group containing series resistors) are simplified without additional logic — because inner structures are eventually exposed as the graph becomes simpler with each pass.
 
 5. **Modular Design**:  
+
    The algorithm is modular: simplification logic is abstracted into separate functions (`simplify_series` and `simplify_parallel`) and the core loop just controls **when to stop**.
 
 This design ensures correctness, scalability, and clarity for complex circuits.
