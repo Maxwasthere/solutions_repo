@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Circuits - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Circuits";
         var mkdocs_page_input_path = "1 Physics/5 Circuits/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -76,7 +76,43 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">5 Circuits</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Circuits</a>
+<ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#algorithm-description">Algorithm Description</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#description-of-the-algorithm">Description of the Algorithm:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#practical-considerations">Practical Considerations:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudocode-identifying-series-and-parallel-connections">Pseudocode – Identifying Series and Parallel Connections</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#pseudocode">Pseudocode:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#explanation-of-the-pseudocode">Explanation of the Pseudocode:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pseudocode-iterative-graph-reduction-until-single-equivalent-resistance">Pseudocode – Iterative Graph Reduction Until Single Equivalent Resistance</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#pseudocode_1">Pseudocode:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#explanation-of-the-algorithm">Explanation of the Algorithm:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#handling-nested-combinations">Handling Nested Combinations</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-the-algorithm-handles-nested-combinations">How the Algorithm Handles Nested Combinations:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#summary">Summary:</a>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -161,7 +197,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">5 Circuits</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Circuits</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -169,6 +205,289 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
+<h1 id="circuits">Circuits</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Calculating the equivalent resistance in electrical circuits is a fundamental task in both theoretical and applied physics. Traditionally, this is done by successively applying series and parallel resistance rules. However, as circuits become more complex—with nested configurations, multiple loops, and redundant paths—this method becomes inefficient and error-prone.</p>
+<p>Graph theory offers a structured and algorithmic alternative to this problem:</p>
+<ul>
+<li>
+<p>A <strong>circuit</strong> can be modeled as an <strong>undirected weighted graph</strong>, where:</p>
+</li>
+<li>
+<p><strong>Nodes</strong> represent electrical junctions.</p>
+</li>
+<li>
+<p><strong>Edges</strong> represent resistors with <strong>weights</strong> corresponding to their resistance values.</p>
+</li>
+<li>
+<p>This abstraction enables the use of well-established graph algorithms to:</p>
+</li>
+<li>
+<p>Identify series and parallel connections.</p>
+</li>
+<li>
+<p>Simplify the network step-by-step.</p>
+</li>
+<li>
+<p>Automate the calculation of the total or <strong>equivalent resistance</strong> between any two terminal nodes.</p>
+</li>
+</ul>
+<p>This approach is particularly valuable for:</p>
+<ul>
+<li>
+<p>Complex circuits involving multiple loops and nested structures.</p>
+</li>
+<li>
+<p>Automated analysis and simulation.</p>
+</li>
+<li>
+<p>Deepening understanding of the connection between electrical systems and graph-theoretical models.</p>
+</li>
+</ul>
+<h2 id="algorithm-description">Algorithm Description</h2>
+<p>To compute the equivalent resistance between two points in an electrical circuit, we can model the circuit as a <strong>weighted undirected graph</strong>, where:</p>
+<ul>
+<li>
+<p><strong>Nodes</strong> represent electrical junctions (connection points).</p>
+</li>
+<li>
+<p><strong>Edges</strong> represent resistors, each assigned a weight equal to its resistance value.</p>
+</li>
+</ul>
+<p>This representation allows us to apply <strong>graph-based algorithms</strong> to simplify the circuit by systematically identifying and reducing <strong>series</strong> and <strong>parallel</strong> resistor groups.</p>
+<h3 id="description-of-the-algorithm">Description of the Algorithm:</h3>
+<ol>
+<li>
+<p><strong>Graph Construction</strong>:<br/>
+   The circuit is first translated into a graph. Each junction in the circuit becomes a node, and each resistor becomes an edge between two nodes, labeled with its resistance.</p>
+</li>
+<li>
+<p><strong>Detection of Series Combinations</strong>:<br/>
+   A <strong>series</strong> configuration is detected when a node connects <strong>exactly two resistors</strong> and is not a terminal node (i.e., not the start or end of the network). The resistors connected through this intermediate node are then collapsed into a single resistor:<br/>
+<span class="arithmatex">\(R_{eq} = R_1 + R_2\)</span></p>
+</li>
+<li>
+<p><strong>Detection of Parallel Combinations</strong>:<br/>
+   A <strong>parallel</strong> configuration exists when <strong>two or more resistors</strong> connect the <strong>same pair of nodes</strong>. These are replaced with a single equivalent resistor using the formula:<br/>
+<span class="arithmatex">\(\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots + \frac{1}{R_n}\)</span></p>
+</li>
+<li>
+<p><strong>Graph Simplification</strong>:<br/>
+   After identifying series or parallel combinations, the corresponding nodes and edges are removed or updated, and a new edge representing the equivalent resistance is added in their place.</p>
+</li>
+<li>
+<p><strong>Repeat Until Reduced</strong>:<br/>
+   Steps 2–4 are repeated in a loop until the graph contains only two nodes (the source and destination) connected by a single equivalent edge.</p>
+</li>
+<li>
+<p><strong>Return Final Resistance</strong>:<br/>
+   The resistance value of the final edge is the total equivalent resistance of the circuit between the selected terminals.</p>
+</li>
+</ol>
+<h3 id="practical-considerations">Practical Considerations:</h3>
+<ul>
+<li>
+<p>The algorithm needs to <strong>avoid collapsing</strong> terminal nodes (such as the power source and ground).</p>
+</li>
+<li>
+<p><strong>Nested combinations</strong> (e.g., series of parallel groups, or parallel of series groups) are automatically handled by the repetition of the simplification loop.</p>
+</li>
+<li>
+<p>The algorithm assumes all resistors are <strong>linear and passive</strong> (i.e., they obey Ohm’s Law and have no directionality or power source themselves).</p>
+</li>
+</ul>
+<h2 id="pseudocode-identifying-series-and-parallel-connections">Pseudocode – Identifying Series and Parallel Connections</h2>
+<h3 id="pseudocode">Pseudocode:</h3>
+<h4 id="function-identify-and-simplify-series-connections">Function: Identify and Simplify Series Connections</h4>
+<pre><code>function simplify_series(G, start, end):
+simplified = false
+
+for each node v in G:
+    if v ≠ start and v ≠ end and degree(v) == 2:
+        neighbors = get_neighbors(v)
+        u = neighbors[0]
+        w = neighbors[1]
+
+        if exactly one edge between (v, u) and one edge between (v, w):
+            R1 = resistance of edge (v, u)
+            R2 = resistance of edge (v, w)
+            R_eq = R1 + R2
+
+            remove edges (v, u) and (v, w)
+            remove node v
+            add edge (u, w) with resistance R_eq
+
+            simplified = true
+
+return simplified
+
+</code></pre>
+<h4 id="function-identify-and-simplify-parallel-connections">Function: Identify and Simplify Parallel Connections</h4>
+<pre><code>function simplify_parallel(G):
+simplified = false
+for each pair of nodes (u, v) in G:
+    edges = get_all_edges_between(u, v)
+
+    if length(edges) &gt; 1:
+        resistances = [resistance of each edge in edges]
+        R_eq = 1 / sum(1 / R for R in resistances)
+
+        remove all edges between u and v
+        add one edge (u, v) with resistance R_eq
+
+        simplified = true
+
+return simplified
+</code></pre>
+<hr/>
+<h3 id="explanation-of-the-pseudocode">Explanation of the Pseudocode:</h3>
+<h4 id="1-series-detection-logic">1. <strong>Series Detection Logic</strong></h4>
+<ul>
+<li>
+<p>The function <code>simplify_series</code> iterates over all nodes in the graph.</p>
+</li>
+<li>
+<p>It <strong>skips terminal nodes</strong> (start and end) to avoid breaking the main circuit path.</p>
+</li>
+<li>
+<p>For each internal node <span class="arithmatex">\(v\)</span>:</p>
+</li>
+<li>It checks if the degree of <span class="arithmatex">\(v\)</span> is 2 (i.e., connected to exactly two neighbors).</li>
+<li>It confirms that there's only <strong>one edge</strong> to each neighbor — a requirement for a <strong>pure series</strong> connection.</li>
+<li>It calculates the <strong>equivalent resistance</strong> as <span class="arithmatex">\(R_{eq} = R_1 + R_2\)</span>.</li>
+<li>It removes the intermediate node and the two old resistors, and replaces them with a new resistor between the neighbors.</li>
+</ul>
+<h4 id="2-parallel-detection-logic">2. <strong>Parallel Detection Logic</strong></h4>
+<ul>
+<li>
+<p>The function <code>simplify_parallel</code> examines every pair of nodes <span class="arithmatex">\((u, v)\)</span>.</p>
+</li>
+<li>
+<p>If there are <strong>multiple edges</strong> (i.e., multiple resistors) between the same pair of nodes, they are in <strong>parallel</strong>.</p>
+</li>
+<li>
+<p>It gathers all resistance values and computes the equivalent using:<br/>
+<span class="arithmatex">\(\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} + \dots\)</span></p>
+</li>
+<li>
+<p>It removes all old edges and replaces them with a single edge with resistance <span class="arithmatex">\(R_{eq}\)</span>.</p>
+</li>
+</ul>
+<h4 id="3-output-behavior">3. <strong>Output Behavior</strong></h4>
+<ul>
+<li>
+<p>Both functions return a boolean <code>simplified</code> to indicate whether any simplification occurred during that pass.</p>
+</li>
+<li>
+<p>This allows the main loop to <strong>repeat the simplification</strong> as long as the graph keeps changing.</p>
+</li>
+</ul>
+<hr/>
+<p>These two pseudocode functions are the <strong>core mechanisms</strong> that allow the algorithm to detect and simplify both basic and <strong>nested</strong> resistor configurations. By embedding them into an iterative loop, the algorithm naturally breaks down complex circuits into simpler ones:</p>
+<ul>
+<li>
+<p>First, it collapses any visible series or parallel groups.</p>
+</li>
+<li>
+<p>Then, simplification may <strong>expose deeper combinations</strong> that weren’t initially detectable.</p>
+</li>
+<li>
+<p>Eventually, the circuit graph reduces to a single equivalent resistor between the input and output terminals — even if the original structure included <strong>multi-level nested groups</strong>.</p>
+</li>
+</ul>
+<h2 id="pseudocode-iterative-graph-reduction-until-single-equivalent-resistance">Pseudocode – Iterative Graph Reduction Until Single Equivalent Resistance</h2>
+<p>This pseudocode describes the full loop that continuously applies simplification rules until the circuit reduces to a single equivalent resistance between two terminal nodes.</p>
+<h3 id="pseudocode_1">Pseudocode:</h3>
+<pre><code>function compute_equivalent_resistance(G, start, end):
+
+while true:
+simplified_series = simplify_series(G, start, end)
+simplified_parallel = simplify_parallel(G)
+
+    if not simplified_series and not simplified_parallel:
+        break
+
+if edge exists directly between start and end:
+    return resistance of that edge
+else:
+    return "Circuit is not fully connected or reducible"
+</code></pre>
+<h3 id="explanation-of-the-algorithm">Explanation of the Algorithm:</h3>
+<ol>
+<li><strong>Loop Structure</strong>:<br/>
+   The algorithm enters a loop where it repeatedly applies two simplification functions:</li>
+<li><code>simplify_series()</code>: Detects and merges series-connected resistors.</li>
+<li>
+<p><code>simplify_parallel()</code>: Detects and merges parallel-connected resistors.</p>
+</li>
+<li>
+<p><strong>Termination Condition</strong>:<br/>
+   The loop exits when <strong>no changes</strong> are made during a complete pass — meaning the graph cannot be simplified further.</p>
+</li>
+<li>
+<p><strong>Final Result</strong>:<br/>
+   After exiting the loop, the algorithm checks whether a <strong>single edge</strong> remains between the terminal nodes:</p>
+</li>
+<li>If yes: the edge's resistance is returned as the <strong>equivalent resistance</strong>.</li>
+<li>
+<p>If not: the circuit is either <strong>not fully connected</strong> or contains configurations not handled by the algorithm.</p>
+</li>
+<li>
+<p><strong>Recursive Simplicity through Iteration</strong>:<br/>
+   Even <strong>nested combinations</strong> (such as a parallel group containing series resistors) are simplified without additional logic — because inner structures are eventually exposed as the graph becomes simpler with each pass.</p>
+</li>
+<li>
+<p><strong>Modular Design</strong>:<br/>
+   The algorithm is modular: simplification logic is abstracted into separate functions (<code>simplify_series</code> and <code>simplify_parallel</code>) and the core loop just controls <strong>when to stop</strong>.</p>
+</li>
+</ol>
+<p>This design ensures correctness, scalability, and clarity for complex circuits.</p>
+<h2 id="handling-nested-combinations">Handling Nested Combinations</h2>
+<p>Nested combinations occur when series and parallel resistor configurations are layered within each other — for example:</p>
+<ul>
+<li>A <strong>series path</strong> that contains a <strong>parallel sub-group</strong> </li>
+<li>A <strong>parallel structure</strong> in which one or more branches are themselves made of <strong>series resistors</strong> </li>
+<li>Multiple layers of alternating series and parallel combinations</li>
+</ul>
+<h3 id="how-the-algorithm-handles-nested-combinations">How the Algorithm Handles Nested Combinations:</h3>
+<p>The key to handling nested configurations lies in the algorithm's <strong>iterative simplification approach</strong>, not in explicitly detecting nesting.</p>
+<h4 id="1-iterative-reduction-unfolds-the-nesting-naturally">1. <strong>Iterative Reduction Unfolds the Nesting Naturally</strong>:</h4>
+<ul>
+<li>
+<p>The algorithm does <strong>not attempt to identify the entire nested structure in one pass</strong>.</p>
+</li>
+<li>
+<p>Instead, it <strong>simplifies whatever it can detect</strong> in each iteration (series or parallel groups).</p>
+</li>
+<li>
+<p>As these outer layers are simplified, the <strong>inner nested structures are gradually exposed</strong>.</p>
+</li>
+<li>
+<p>On the next pass, previously "hidden" configurations become reducible.</p>
+</li>
+</ul>
+<h4 id="2-example">2. <strong>Example</strong>:</h4>
+<p>Imagine a circuit with the following configuration:</p>
+<ul>
+<li><span class="arithmatex">\(R_1\)</span> and <span class="arithmatex">\(R_2\)</span> in series  </li>
+<li>This combination is in parallel with <span class="arithmatex">\(R_3\)</span> </li>
+<li>That result is in series with <span class="arithmatex">\(R_4\)</span></li>
+</ul>
+<p>Although this is a nested structure, the algorithm handles it as:</p>
+<ul>
+<li><strong>First Pass</strong>: Combines <span class="arithmatex">\(R_1 + R_2\)</span> into one resistor (<span class="arithmatex">\(R_{12}\)</span>)  </li>
+<li><strong>Second Pass</strong>: Detects and simplifies <span class="arithmatex">\(R_{12} \parallel R_3\)</span> </li>
+<li><strong>Third Pass</strong>: Adds the result in series with <span class="arithmatex">\(R_4\)</span></li>
+</ul>
+<p>No special logic is needed for nesting — it resolves <strong>automatically</strong> over multiple iterations.</p>
+<h4 id="3-why-this-works">3. <strong>Why This Works</strong>:</h4>
+<ul>
+<li>Series and parallel rules apply <strong>locally</strong>.  </li>
+<li>Each simplification <strong>reduces the graph</strong> and <strong>simplifies the topology</strong>.  </li>
+<li>Eventually, <strong>only the start and end nodes remain</strong>, connected by a single equivalent resistor.</li>
+</ul>
+<h3 id="summary">Summary:</h3>
+<p>Instead of trying to break down the entire nested structure at once, the algorithm keeps things simple: it just looks for the basic series and parallel combinations it can reduce right now. Once those are simplified, new combinations start to show up naturally. By repeating this process, the more complex, nested parts of the circuit are handled step by step — no need for special rules or deep inspection. In the end, everything gets reduced to a single resistance between the two terminal nodes.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
