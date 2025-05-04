@@ -133,10 +133,11 @@ return simplified
 
 - For each internal node $v$:
 
-  - It checks if the degree of $v$ is 2 (i.e., connected to exactly two neighbors).
-  - It confirms that there's only **one edge** to each neighbor — a requirement for a **pure series** connection.
-  - It calculates the **equivalent resistance** as $R_{eq} = R_1 + R_2$.
-  - It removes the intermediate node and the two old resistors, and replaces them with a new resistor between the neighbors.
+    - It checks if the degree of $v$ is 2 (i.e., connected to exactly two neighbors).
+    - It confirms that there's only **one edge** to each neighbor — a requirement for a **pure series** connection.
+    - It calculates the **equivalent resistance** as $R_{eq} = R_1 + R_2$.
+    - It removes the intermediate node and the two old resistors, and replaces them with a new resistor between the neighbors.
+
 
 #### 2. **Parallel Detection Logic**
 
