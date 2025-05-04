@@ -270,19 +270,21 @@
 <p>In this part of the assignment, I tested how the sampling distribution of the sample mean changes with increasing sample size, using three different population distributions: uniform, exponential, and binomial.</p>
 <h3 id="sampling-procedure">Sampling Procedure:</h3>
 <ul>
-<li>For each population distribution, I selected the following sample sizes:  </li>
+<li>
+<p>For each population distribution, I selected the following sample sizes: </p>
+<ul>
 <li><span class="arithmatex">\(n = 5\)</span> </li>
 <li><span class="arithmatex">\(n = 30\)</span> </li>
-<li>
-<p><span class="arithmatex">\(n = 100\)</span></p>
+<li><span class="arithmatex">\(n = 100\)</span></li>
+</ul>
 </li>
 <li>
 <p>For each sample size, I:  </p>
-</li>
+<ul>
 <li>Drew 1000 independent random samples with replacement from the population.  </li>
 <li>Calculated the <strong>sample mean</strong> of each sample.  </li>
-<li>
-<p>Collected these means to form a <strong>sampling distribution</strong>.</p>
+<li>Collected these means to form a <strong>sampling distribution</strong>.</li>
+</ul>
 </li>
 <li>
 <p>I then visualized each set of sample means using histograms with KDE overlays to observe the overall shape.</p>
@@ -290,30 +292,42 @@
 </ul>
 <h3 id="what-i-observed">What I Observed:</h3>
 <ul>
-<li><strong>Uniform Distribution</strong>:  </li>
+<li>
+<p><strong>Uniform Distribution</strong>:  </p>
+<ul>
 <li>Even at <span class="arithmatex">\(n = 5\)</span>, the sampling distribution was fairly symmetric.  </li>
 <li>At <span class="arithmatex">\(n = 30\)</span> and <span class="arithmatex">\(n = 100\)</span>, it became very smooth and bell-shaped.  </li>
 <li>The mean was centered around <span class="arithmatex">\(0.5\)</span>, as expected from a Uniform(0, 1) distribution.</li>
+</ul>
+</li>
 </ul>
 <p><img alt="alt text" src="../image.png"/>
 <img alt="alt text" src="../image-1.png"/>
 <img alt="alt text" src="../image-2.png"/></p>
 <ul>
-<li><strong>Exponential Distribution</strong>:  </li>
+<li>
+<p><strong>Exponential Distribution</strong>:  </p>
+<ul>
 <li>With <span class="arithmatex">\(n = 5\)</span>, the sampling distribution was still skewed to the right, like the original data.  </li>
 <li>At <span class="arithmatex">\(n = 30\)</span>, the skew started to reduce, and the shape became more balanced.  </li>
 <li>By <span class="arithmatex">\(n = 100\)</span>, the sampling distribution looked close to normal.  </li>
 <li>This showed that even skewed distributions normalize with large enough <span class="arithmatex">\(n\)</span>.</li>
 </ul>
+</li>
+</ul>
 <p><img alt="alt text" src="../image-3.png"/>
 <img alt="alt text" src="../image-4.png"/>
 <img alt="alt text" src="../image-5.png"/></p>
 <ul>
-<li><strong>Binomial Distribution</strong>:  </li>
+<li>
+<p><strong>Binomial Distribution</strong>:  </p>
+<ul>
 <li>The binomial population was already somewhat symmetric.  </li>
 <li>At <span class="arithmatex">\(n = 5\)</span>, the distribution of sample means showed visible discreteness, but a peak near 5.  </li>
 <li>For <span class="arithmatex">\(n = 30\)</span> and <span class="arithmatex">\(n = 100\)</span>, the shape became nearly perfectly normal.  </li>
 <li>The average sample mean remained close to the theoretical value of <span class="arithmatex">\(np = 5\)</span>.</li>
+</ul>
+</li>
 </ul>
 <p><img alt="alt text" src="../image-6.png"/>
 <img alt="alt text" src="../image-7.png"/>
@@ -353,13 +367,11 @@
 <ul>
 <li>
 <p>As the sample size increased from <span class="arithmatex">\(n = 5\)</span> to <span class="arithmatex">\(n = 100\)</span>, all sampling distributions became:  </p>
-</li>
-<li>
-<p>More <strong>centered</strong> around the true population mean  </p>
-</li>
+<ul>
+<li>More <strong>centered</strong> around the true population mean  </li>
 <li>More <strong>symmetrical</strong> </li>
-<li>
-<p><strong>Less variable</strong>, with tighter clustering around the mean</p>
+<li><strong>Less variable</strong>, with tighter clustering around the mean</li>
+</ul>
 </li>
 <li>
 <p>The standard deviation of the sampling distribution decreased with increasing <span class="arithmatex">\(n\)</span>, consistent with:<br/>
