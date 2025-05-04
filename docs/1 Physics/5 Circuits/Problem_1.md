@@ -8,17 +8,17 @@ Graph theory offers a structured and algorithmic alternative to this problem:
 
 - A **circuit** can be modeled as an **undirected weighted graph**, where:
 
-  - **Nodes** represent electrical junctions.
+    - **Nodes** represent electrical junctions.
 
-  - **Edges** represent resistors with **weights** corresponding to their resistance values.
+    - **Edges** represent resistors with **weights** corresponding to their resistance values.
 
 - This abstraction enables the use of well-established graph algorithms to:
 
-  - Identify series and parallel connections.
+    - Identify series and parallel connections.
 
-  - Simplify the network step-by-step.
+    - Simplify the network step-by-step.
 
-  - Automate the calculation of the total or **equivalent resistance** between any two terminal nodes.
+    - Automate the calculation of the total or **equivalent resistance** between any two terminal nodes.
 
 This approach is particularly valuable for:
 

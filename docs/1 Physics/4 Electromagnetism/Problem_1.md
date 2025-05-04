@@ -275,6 +275,7 @@ $$
 $$
 
 Key points:
+
 - This drift is **independent** of the particle’s charge and mass.
 - The particle’s actual motion is a combination of fast circular/spiral motion and a steady drift along a straight line.
 - In simulations, this can be visualized by:
