@@ -81,44 +81,58 @@ In this part of the assignment, I tested how the sampling distribution of the sa
 
 ### Sampling Procedure:
 
-- For each population distribution, I selected the following sample sizes:  
-  - $n = 5$  
-  - $n = 30$  
-  - $n = 100$
+
+- For each population distribution, I selected the following sample sizes: 
+
+    - $n = 5$  
+    - $n = 30$  
+    - $n = 100$
+
 
 - For each sample size, I:  
-  - Drew 1000 independent random samples with replacement from the population.  
-  - Calculated the **sample mean** of each sample.  
-  - Collected these means to form a **sampling distribution**.
+
+    - Drew 1000 independent random samples with replacement from the population.  
+    - Calculated the **sample mean** of each sample.  
+    - Collected these means to form a **sampling distribution**.
+
 
 - I then visualized each set of sample means using histograms with KDE overlays to observe the overall shape.
 
 ### What I Observed:
 
+
 - **Uniform Distribution**:  
-  - Even at $n = 5$, the sampling distribution was fairly symmetric.  
-  - At $n = 30$ and $n = 100$, it became very smooth and bell-shaped.  
-  - The mean was centered around $0.5$, as expected from a Uniform(0, 1) distribution.
+
+    - Even at $n = 5$, the sampling distribution was fairly symmetric.  
+    - At $n = 30$ and $n = 100$, it became very smooth and bell-shaped.  
+    - The mean was centered around $0.5$, as expected from a Uniform(0, 1) distribution.
+
 
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
 
+
 - **Exponential Distribution**:  
-  - With $n = 5$, the sampling distribution was still skewed to the right, like the original data.  
-  - At $n = 30$, the skew started to reduce, and the shape became more balanced.  
-  - By $n = 100$, the sampling distribution looked close to normal.  
-  - This showed that even skewed distributions normalize with large enough $n$.
+
+    - With $n = 5$, the sampling distribution was still skewed to the right, like the original data.  
+    - At $n = 30$, the skew started to reduce, and the shape became more balanced.  
+    - By $n = 100$, the sampling distribution looked close to normal.  
+    - This showed that even skewed distributions normalize with large enough $n$.
+
 
 ![alt text](image-3.png)
 ![alt text](image-4.png)
 ![alt text](image-5.png)
 
+
 - **Binomial Distribution**:  
-  - The binomial population was already somewhat symmetric.  
-  - At $n = 5$, the distribution of sample means showed visible discreteness, but a peak near 5.  
-  - For $n = 30$ and $n = 100$, the shape became nearly perfectly normal.  
-  - The average sample mean remained close to the theoretical value of $np = 5$.
+
+    - The binomial population was already somewhat symmetric.  
+    - At $n = 5$, the distribution of sample means showed visible discreteness, but a peak near 5.  
+    - For $n = 30$ and $n = 100$, the shape became nearly perfectly normal.  
+    - The average sample mean remained close to the theoretical value of $np = 5$.
+
 
 ![alt text](image-6.png)
 ![alt text](image-7.png)
@@ -128,8 +142,10 @@ In this part of the assignment, I tested how the sampling distribution of the sa
 
 - In all three cases, increasing the sample size made the sampling distributions smoother, more symmetric, and more bell-shaped.
 
+
 - The variance of the sample means decreased as $n$ increased, matching the formula:  
   $\sigma_{\bar{X}} = \frac{\sigma}{\sqrt{n}}$
+
 
 - The results clearly illustrated the Central Limit Theorem in action: regardless of how the original data is shaped, the **distribution of the sample mean approaches normality** as the sample size grows.
 
@@ -155,9 +171,9 @@ This shows that the CLT holds in all cases, but **skewed and discrete distributi
 
 - As the sample size increased from $n = 5$ to $n = 100$, all sampling distributions became:  
   
-  - More **centered** around the true population mean  
-  - More **symmetrical**  
-  - **Less variable**, with tighter clustering around the mean
+    - More **centered** around the true population mean  
+    - More **symmetrical**  
+    - **Less variable**, with tighter clustering around the mean
 
 
 - The standard deviation of the sampling distribution decreased with increasing $n$, consistent with:  
