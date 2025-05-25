@@ -183,7 +183,11 @@ Despite minor limitations, the experimental method provided a good approximation
 
 - Mean time for 10 oscillations: $\overline{T_{10}} = 20.19\ \text{s}$  
 - Standard deviation: $\sigma_T = 0.07\ \text{s}$  
+
+
 - Uncertainty in $\overline{T_{10}}$: $\Delta T_{10} = \frac{0.07}{\sqrt{10}} \approx 0.022\ \text{s}$  
+
+
 - Period: $T = \frac{20.19}{10} = 2.019\ \text{s}$  
 - $\Delta T = \frac{0.022}{10} = 0.0022\ \text{s}$
 
@@ -201,8 +205,10 @@ Despite minor limitations, the experimental method provided a good approximation
 - Gravitational acceleration:  
   $g = \frac{4\pi^2 L}{T^2} = \frac{4\pi^2 \cdot 1.000}{(2.019)^2} \approx 9.69\ \text{m/s}^2$
 
+
 - Uncertainty in $g$:  
   $\Delta g = 9.69 \cdot \sqrt{\left(\frac{0.005}{1.000}\right)^2 + \left(2 \cdot \frac{0.0022}{2.019}\right)^2} \approx 0.05\ \text{m/s}^2$
+
 
 ---
 
