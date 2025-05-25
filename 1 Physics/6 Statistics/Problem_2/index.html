@@ -92,6 +92,34 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#simulation">Simulation</a>
 </li>
+<li class="toctree-l4"><a class="reference internal" href="#visualization">Visualization</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#analysis">Analysis</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#observations">Observations:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#convergence-rate">Convergence Rate:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#computational-considerations">Computational Considerations:</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#estimating-using-buffons-needle">Estimating π Using Buffon’s Needle</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#theoretical-foundation_1">Theoretical Foundation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#simulation_1">Simulation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#visualization_1">Visualization</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#analysis_1">Analysis</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#accuracy-with-increasing-drops">Accuracy with Increasing Drops:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#convergence-rate-and-comparison">Convergence Rate and Comparison:</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#summary">Summary:</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -221,6 +249,259 @@
 </li>
 </ul>
 <p><span class="arithmatex">\(π \approx 4 \cdot \left(\frac{\text{points inside circle}}{\text{total points}}\right)\)</span></p>
+<p>Our code will look like this :</p>
+<pre><code># Monte Carlo simulation to estimate π using the circle method
+
+import numpy as np
+
+# Parameters
+N = 10000  # number of random points
+
+# Generate N random points (x, y) in the square [-1, 1] x [-1, 1]
+x = np.random.uniform(-1, 1, N)
+y = np.random.uniform(-1, 1, N)
+
+# Calculate distance from origin (0,0)
+dist_squared = x**2 + y**2
+
+# Count how many points fall inside the unit circle
+inside_circle = dist_squared &lt;= 1
+num_inside = np.sum(inside_circle)
+
+# Estimate π
+pi_estimate = 4 * num_inside / N
+
+print(f"Estimated π (N={N}): {pi_estimate}")
+
+</code></pre>
+<p>In the end we get this final result : <strong>Estimated π (N=10000): 3.1288</strong></p>
+<h3 id="visualization">Visualization</h3>
+<p>To better understand how the Monte Carlo method approximates π, I created a plot showing all the randomly generated points:</p>
+<ul>
+<li>Points that fall <strong>inside the unit circle</strong> are colored in blue.</li>
+<li>Points that fall <strong>outside the circle</strong> are colored in red.</li>
+</ul>
+<p>This visualization clearly shows how the density of points inside the circle compares to those outside, and helps illustrate the geometric basis of the estimation method.</p>
+<p><img alt="alt text" src="../image-9.png"/></p>
+<h3 id="analysis">Analysis</h3>
+<p>To understand how the accuracy of the Monte Carlo estimate improves, I tested the simulation using different values of <span class="arithmatex">\(N\)</span> — the total number of randomly generated points.</p>
+<p>I used the following sample sizes:</p>
+<ul>
+<li><span class="arithmatex">\(N = 100\)</span> </li>
+<li><span class="arithmatex">\(N = 1,000\)</span> </li>
+<li><span class="arithmatex">\(N = 10,000\)</span> </li>
+<li><span class="arithmatex">\(N = 100,000\)</span></li>
+</ul>
+<p>For each run, I estimated the value of π and calculated the <strong>absolute error</strong> from the true value <span class="arithmatex">\(π \approx 3.14159\)</span>.</p>
+<h3 id="observations">Observations:</h3>
+<ul>
+<li>
+<p>At small values of <span class="arithmatex">\(N\)</span> (e.g., <span class="arithmatex">\(N = 100\)</span>), the estimate fluctuated significantly and often deviated from the true value by a noticeable margin.</p>
+</li>
+<li>
+<p>As <span class="arithmatex">\(N\)</span> increased, the estimate <strong>became more stable</strong> and <strong>closer to π</strong>, consistent with the Law of Large Numbers.</p>
+</li>
+<li>
+<p>The error appeared to <strong>shrink roughly proportionally to <span class="arithmatex">\(1 / \sqrt{N}\)</span></strong>, which is a common convergence rate for Monte Carlo methods.</p>
+</li>
+<li>
+<p>This method is <strong>probabilistic</strong>, so results can vary slightly with each run, but the overall trend is consistent:<br/>
+  more points → more accurate estimate.</p>
+</li>
+</ul>
+<h3 id="convergence-rate">Convergence Rate:</h3>
+<ul>
+<li>
+<p>The convergence of this method is relatively <strong>slow</strong> compared to deterministic numerical methods.</p>
+</li>
+<li>
+<p>To gain one additional digit of precision, the sample size must increase by a factor of about <strong>100</strong>.</p>
+</li>
+<li>
+<p>This is because the <strong>standard deviation of the estimator</strong> decreases as:<br/>
+<span class="arithmatex">\(\text{Error} \propto \frac{1}{\sqrt{N}}\)</span></p>
+</li>
+<li>
+<p>This slow rate is a well-known trade-off in Monte Carlo simulations.</p>
+</li>
+</ul>
+<h3 id="computational-considerations">Computational Considerations:</h3>
+<ul>
+<li>
+<p>Despite the slow convergence, this method has advantages: </p>
+</li>
+<li>
+<p>It is <strong>conceptually simple</strong> </p>
+</li>
+<li>
+<p>It works in <strong>higher dimensions</strong> where other methods fail  </p>
+</li>
+<li>
+<p>It is <strong>highly parallelizable</strong>, making it suitable for large-scale computation</p>
+</li>
+<li>
+<p>On the downside, achieving <strong>high precision</strong> requires <strong>a large number of samples</strong>, which increases computational cost.</p>
+</li>
+</ul>
+<p>The Monte Carlo circle method is a powerful but noisy estimator for π. It shows clear convergence toward the true value, but it requires a <strong>very large number of points</strong> to achieve <strong>high accuracy</strong>. The method is best suited for educational purposes, exploratory simulations, or applications where simplicity and parallelism are more important than rapid convergence.</p>
+<h2 id="estimating-using-buffons-needle">Estimating π Using Buffon’s Needle</h2>
+<h3 id="theoretical-foundation_1">Theoretical Foundation</h3>
+<p>Buffon’s Needle is a famous probability problem introduced in the 18th century by Georges-Louis Leclerc, Comte de Buffon. It provides a surprising way to estimate the value of π using random needle drops on a lined surface.</p>
+<h4 id="setup">Setup:</h4>
+<ul>
+<li>
+<p>We have a floor with <strong>equally spaced parallel lines</strong>, a distance <span class="arithmatex">\(d\)</span> apart.</p>
+</li>
+<li>
+<p>We drop a <strong>needle of length <span class="arithmatex">\(l\)</span></strong> onto the floor.</p>
+</li>
+<li>
+<p>We assume the following conditions:  </p>
+</li>
+<li>
+<p>The needle length <span class="arithmatex">\(l\)</span> is <strong>less than or equal to</strong> the distance between the lines (<span class="arithmatex">\(l \leq d\)</span>).  </p>
+</li>
+<li>The needle falls in a completely <strong>random position and angle</strong>.</li>
+</ul>
+<h4 id="goal">Goal:</h4>
+<p>Estimate the probability <span class="arithmatex">\(P\)</span> that the needle <strong>crosses a line</strong> when it lands.</p>
+<p>Buffon showed that the probability of a crossing is given by:</p>
+<div class="arithmatex">\[
+P = \frac{2l}{dπ}
+\]</div>
+<p>If we rearrange this formula, we can solve for π:</p>
+<div class="arithmatex">\[
+π \approx \frac{2l \cdot N}{d \cdot H}
+\]</div>
+<p>Where:</p>
+<ul>
+<li><span class="arithmatex">\(N\)</span> = total number of needle drops  </li>
+<li><span class="arithmatex">\(H\)</span> = number of times the needle crosses a line  </li>
+</ul>
+<p>This gives us a way to estimate π based on how often the needle intersects a line. As <span class="arithmatex">\(N\)</span> increases, the estimate becomes more accurate.</p>
+<h4 id="why-it-works">Why it works:</h4>
+<ul>
+<li>
+<p>The result is derived from integrating over all possible positions and angles that a randomly dropped needle can take.</p>
+</li>
+<li>
+<p>Even though the setup is physical and geometric, it leads to a surprisingly elegant formula involving π.</p>
+</li>
+</ul>
+<p>This method is more abstract and mathematically rich than the circle method, but it also has practical value in understanding randomness, integration, and geometric probability.</p>
+<h3 id="simulation_1">Simulation</h3>
+<p>To simulate Buffon’s Needle, I modeled the process of randomly dropping a needle on a lined surface and checking whether it crosses a line. The following parameters were used:</p>
+<ul>
+<li>Needle length <span class="arithmatex">\(l = 1\)</span> </li>
+<li>Distance between lines <span class="arithmatex">\(d = 2\)</span> </li>
+<li>Total number of needle drops: <span class="arithmatex">\(N\)</span> (e.g., 10000)</li>
+</ul>
+<p>Each needle drop was defined by two random variables:</p>
+<ul>
+<li>
+<p>The <strong>distance</strong> from the needle’s center to the closest line (uniform between <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(d/2\)</span>)</p>
+</li>
+<li>
+<p>The <strong>angle</strong> between the needle and the parallel lines (uniform between <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(π/2\)</span>)</p>
+</li>
+</ul>
+<p>A needle is considered to <strong>cross a line</strong> if:</p>
+<div class="arithmatex">\[
+\text{distance to nearest line} \leq \frac{l}{2} \cdot \sin(θ)
+\]</div>
+<p>Using this rule, I counted the number of crossing events and applied the formula:</p>
+<div class="arithmatex">\[
+π \approx \frac{2l \cdot N}{d \cdot H}
+\]</div>
+<p>Where <span class="arithmatex">\(H\)</span> is the number of hits (crossings).</p>
+<pre><code># Simulation of Buffon's Needle to estimate π
+
+import numpy as np
+
+# Parameters
+N = 10000        # number of needle drops
+l = 1.0          # length of the needle
+d = 2.0          # distance between parallel lines
+
+# Random angle between 0 and π/2
+theta = np.random.uniform(0, np.pi / 2, N)
+
+# Distance from center of needle to nearest line (0 to d/2)
+y_center = np.random.uniform(0, d / 2, N)
+
+# A needle crosses a line if the vertical reach exceeds the center offset
+crossings = y_center &lt;= (l / 2) * np.sin(theta)
+num_hits = np.sum(crossings)
+
+# Estimate π using Buffon's formula
+if num_hits &gt; 0:
+    pi_estimate = (2 * l * N) / (d * num_hits)
+    print(f"Estimated π using Buffon's Needle (N = {N}): {pi_estimate}")
+else:
+    print("No crossings occurred — cannot estimate π")
+
+</code></pre>
+<p>Result will look like this : <strong>Estimated π using Buffon's Needle (N = 10000): 3.117206982543641</strong></p>
+<h3 id="visualization_1">Visualization</h3>
+<p>To better understand the simulation, I created a 2D plot showing the outcome of each needle drop:</p>
+<ul>
+<li>Each needle is drawn as a line segment.</li>
+<li><strong>Needles that cross a line</strong> are shown in green.</li>
+<li><strong>Needles that do not cross a line</strong> are shown in gray.</li>
+<li>The parallel floor lines are shown as horizontal dashed lines.</li>
+</ul>
+<p>This visualization helps illustrate the geometric nature of the problem and confirms that the randomness is correctly distributed across angle and position.</p>
+<p><img alt="alt text" src="../image-10.png"/></p>
+<p>This plot gives a clear visual sense of how the simulation works — green lines indicate successful crossings that contribute to the π estimate.</p>
+<h3 id="analysis_1">Analysis</h3>
+<p>After running simulations with different numbers of needle drops, I explored how the accuracy of the estimate for π changed and how this method compared to the circle-based approach in terms of convergence.</p>
+<h3 id="accuracy-with-increasing-drops">Accuracy with Increasing Drops:</h3>
+<p>I tested the Buffon’s Needle method with different values of <span class="arithmatex">\(N\)</span>, such as:</p>
+<ul>
+<li><span class="arithmatex">\(N = 1,000\)</span></li>
+<li><span class="arithmatex">\(N = 10,000\)</span></li>
+<li><span class="arithmatex">\(N = 100,000\)</span></li>
+</ul>
+<p>The estimated value of π <strong>fluctuated significantly</strong> when the number of drops was low. For example:</p>
+<ul>
+<li>At <span class="arithmatex">\(N = 1,000\)</span>, results varied between 2.8 and 3.4 depending on the random seed and distribution of angles.</li>
+<li>At <span class="arithmatex">\(N = 100,000\)</span>, the result was much more stable and closer to the true value of π (approximately 3.1416).</li>
+</ul>
+<p>This behavior is expected due to the <strong>inherent randomness</strong> and relatively low probability of a crossing event, which introduces high variance in small samples.</p>
+<h3 id="convergence-rate-and-comparison">Convergence Rate and Comparison:</h3>
+<ul>
+<li>
+<p>Both the <strong>circle method</strong> and <strong>Buffon’s Needle method</strong> rely on Monte Carlo techniques, and their <strong>convergence rate</strong> is theoretically similar:<br/>
+<span class="arithmatex">\(\text{Error} \propto \frac{1}{\sqrt{N}}\)</span></p>
+</li>
+<li>
+<p>However, in practice, Buffon’s method converges <strong>much more slowly</strong> than the circle method. Reasons include:</p>
+</li>
+<li>
+<p>The crossing condition in Buffon’s method is more sensitive to small angle values.</p>
+</li>
+<li>
+<p>The number of crossing events is relatively <strong>low compared to total drops</strong>, especially when the needle is short relative to the line spacing.</p>
+</li>
+<li>
+<p>As a result, the <strong>variance of the estimator</strong> is much higher, which leads to less stable estimates of π unless <span class="arithmatex">\(N\)</span> is extremely large.</p>
+</li>
+<li>
+<p>The circle method, by contrast, has a much <strong>higher signal-to-noise ratio</strong>: every point contributes clearly to the estimate, and the proportion inside the circle is relatively large and stable.</p>
+</li>
+</ul>
+<h3 id="summary">Summary:</h3>
+<ul>
+<li>
+<p>Buffon’s Needle method can estimate π, but it requires a <strong>very large number of drops</strong> to achieve accuracy comparable to the circle method.</p>
+</li>
+<li>
+<p>It is <strong>mathematically elegant</strong> and historically important, but less efficient as a practical estimation technique.</p>
+</li>
+<li>
+<p>Compared to the circle-based approach, Buffon’s method is a good demonstration of <strong>geometric probability</strong>, but not ideal for computational estimation of π.</p>
+</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
